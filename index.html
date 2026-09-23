@@ -168,6 +168,15 @@
   .feed-card .chan{font-family:var(--font-mono);font-size:11px;color:var(--text-faint);margin-bottom:12px;}
   .feed-empty{font-size:12px;color:var(--text-faint);text-align:center;padding:18px 4px;border:1px dashed var(--border);border-radius:var(--radius-s);}
   .feed-card a.chan-link{display:inline-block;margin-top:10px;font-size:11.5px;}
+  .collage-wrap{margin-bottom:26px;}
+  .collage-empty{border:1px dashed var(--border);border-radius:var(--radius-s);padding:22px;text-align:center;font-size:12px;color:var(--text-faint);}
+  .collage-track{display:flex;gap:10px;overflow-x:auto;padding-bottom:6px;scroll-snap-type:x proximity;}
+  .collage-item{position:relative;flex:none;width:150px;height:150px;border-radius:var(--radius-m);overflow:hidden;border:1px solid var(--border);scroll-snap-align:start;background:var(--surface-2);}
+  .collage-item img{width:100%;height:100%;object-fit:cover;display:block;}
+  .collage-item .cap{position:absolute;left:0;right:0;bottom:0;padding:6px 8px;font-size:10.5px;color:#fff;background:linear-gradient(to top, rgba(0,0,0,.65), transparent);}
+  .streak-flame{font-size:12px;}
+  .streak-0{color:var(--text-faint);}
+  .top-badge{display:inline-block;margin-left:6px;font-size:11px;}
 
   /* ---------- FAMILY TREE (grouped family-unit cards, no crossing lines) ---------- */
   .tree-legend{display:flex;gap:16px;flex-wrap:wrap;margin-bottom:18px;font-size:12px;color:var(--text-dim);align-items:center;}
@@ -268,9 +277,15 @@
       <p>This scans <span class="mono">#points</span>, <span class="mono">#coffee-chats</span>, <span class="mono">#spotted</span>, <span class="mono">#f26-pledge-announcements</span> and <span class="mono">#pledge-announcements</span> for point awards, proof photos, and announcements. Right now those channels only have e-board join events — <b>no pledges have been added yet</b> and nothing's been posted. This table fills in automatically once that starts.</p>
     </div>
     <table class="buddy-table" id="lbTable" style="display:none;">
-      <thead><tr><th>Rank</th><th>Pledge</th><th>Total</th><th>Coffee Chats</th><th>Brotherhood</th><th>Fellowship</th><th>Last Logged</th></tr></thead>
+      <thead><tr><th>Rank</th><th>Pledge</th><th>Total</th><th>🔥 Streak</th><th>Coffee Chats</th><th>Brotherhood</th><th>Fellowship</th><th>Last Logged</th></tr></thead>
       <tbody id="lbBody"></tbody>
     </table>
+
+    <h3 style="font-size:15px;color:var(--text-dim);font-weight:600;margin:28px 0 14px;">📷 Recent Activity</h3>
+    <div class="collage-wrap">
+      <div class="collage-empty" id="collageEmpty">No photos to show yet — once coffee chat/spotted pics start hitting Slack, they'll rotate through here so everyone can see who's active.</div>
+      <div class="collage-track" id="collageTrack" style="display:none;"></div>
+    </div>
 
     <h3 style="font-size:15px;color:var(--text-dim);font-weight:600;margin:28px 0 14px;">Flagged from Slack</h3>
     <div class="feed-grid">
@@ -332,14 +347,12 @@
       <div class="card res-card">
         <h4>📋 Points &amp; Requirements</h4>
         <a href="https://docs.google.com/document/d/13Ft9rRXkh1sQxOWSGoxphkJ8mH0QKXx6dtZYMmAeXcg/edit" target="_blank" rel="noopener">Pledge Points Guide F26 ↗</a>
-        <a href="https://docs.google.com/document/d/1bTJmOQ0ZD7Ixqvfzq86VaJXUT4I62NMB2-Lpwe8-b9g/edit" target="_blank" rel="noopener">Pledge Assignment Masterdoc F26 ↗</a>
-        <a href="https://docs.google.com/spreadsheets/d/1tULw4khgdtjeGK34LbitbBmO1g1aUudJBBo8tnno2dw/edit" target="_blank" rel="noopener">Pre-Coffee Chat Tasks (weekly) ↗</a>
       </div>
       <div class="card res-card">
         <h4>👥 Chapter &amp; Directory</h4>
         <a href="https://docs.google.com/spreadsheets/d/1dWPomZZyaHu_tPSxJYWlO4hZcUAgRnUOOe_c5e_SeQs/edit" target="_blank" rel="noopener">KTP External Directory ↗</a>
-        <a href="https://docs.google.com/presentation/d/1K_Zb62sSfZfKtetCu2zAPwKS9pgQ-Q0kSGol0OLvgSY/edit" target="_blank" rel="noopener">Meet the Chapter deck ↗</a>
-        <a href="https://docs.google.com/presentation/d/1Hmz5UkBGFPxmoQDvMC6xx1M93gcBK4oKthZao61PWJE/edit" target="_blank" rel="noopener">Chapter Meeting #1 slides ↗</a>
+        <a href="https://docs.google.com/presentation/d/1K_Zb62sSfZfKtetCu2zAPwKS9pgQ-Q0kSGol0OLvgSY/preview" target="_blank" rel="noopener">Meet the Chapter deck ↗ (view only)</a>
+        <a href="https://docs.google.com/presentation/d/1Hmz5UkBGFPxmoQDvMC6xx1M93gcBK4oKthZao61PWJE/preview" target="_blank" rel="noopener">Chapter Meeting #1 slides ↗ (view only)</a>
       </div>
       <div class="card res-card">
         <h4>🧑‍🏫 LAUNCH Mentorship &amp; Buddies</h4>
@@ -368,7 +381,7 @@
   <footer class="foot">
     <span>Data pulled from the KTP External Directory, F26 Pledge Points Guide &amp; F25/S25 Membership Database responses.</span>
     <a href="https://docs.google.com/spreadsheets/d/1dWPomZZyaHu_tPSxJYWlO4hZcUAgRnUOOe_c5e_SeQs/edit" target="_blank" rel="noopener">Full External Directory ↗</a>
-    <a href="https://docs.google.com/presentation/d/1K_Zb62sSfZfKtetCu2zAPwKS9pgQ-Q0kSGol0OLvgSY/edit" target="_blank" rel="noopener">Meet the Chapter deck ↗</a>
+    <a href="https://docs.google.com/presentation/d/1K_Zb62sSfZfKtetCu2zAPwKS9pgQ-Q0kSGol0OLvgSY/preview" target="_blank" rel="noopener">Meet the Chapter deck ↗</a>
     <span>This page shows phone/email/LinkedIn pulled from internal chapter records — only share the link with actual chapter members.</span>
   </footer>
 </div>
@@ -414,13 +427,21 @@
     {name:"Thomas Huang", cls:"Gamma", role:"Active", pending:true, major:"Chemical Engineering", hometown:"Hsinchu, Taiwan", fact:"—", tech:"—", work:"—", ig:"@thomas_huanggg", li:"", phone:"213-234-8876", email:"huangtho@usc.edu"},
     {name:"Andrew Chan", cls:"Epsilon", role:"Active", pending:true, major:"CSBA", hometown:"Chicago, IL", fact:"Spring admit.", tech:"PCs", work:"—", ig:"@andrewmattchan", li:"andrew-chan-00b856261", phone:"773-621-5096", email:"achan391@usc.edu"}
   ];
-  var ALL = EBOARD.concat(ACTIVES);
-  var CLASS_COLOR = {Gamma:"var(--gamma)", Delta:"var(--delta)", Epsilon:"var(--epsilon)"};
+  // PLEDGES: empty until the F26 pledge class is added to the official directory. Once the
+  // routine adds real entries here (name, cls:"Pledge", major, hometown, fact, ig, li), they
+  // show up in the Directory tab automatically, and the top scorer in LEDGER gets a badge.
+  var PLEDGES = [];
+  var ALL = EBOARD.concat(ACTIVES).concat(PLEDGES);
+  var CLASS_COLOR = {Gamma:"var(--gamma)", Delta:"var(--delta)", Epsilon:"var(--epsilon)", Pledge:"var(--zeta)"};
   var byName = {}; ALL.forEach(function(p){ byName[p.name]=p; });
 
   var TASK_WEEK = "Week 1, 9/23–9/30";
-  var MEET_DECK = "https://docs.google.com/presentation/d/1K_Zb62sSfZfKtetCu2zAPwKS9pgQ-Q0kSGol0OLvgSY/edit";
+  var MEET_DECK = "https://docs.google.com/presentation/d/1K_Zb62sSfZfKtetCu2zAPwKS9pgQ-Q0kSGol0OLvgSY/preview";
   var DEADLINE = new Date("2026-12-04T23:59:00-08:00");
+
+  // COLLAGE_PHOTOS: {url, caption, date} from #coffee-chats / #spotted, most recent first,
+  // capped by the routine to keep page size sane. Empty until real photos get posted.
+  var COLLAGE_PHOTOS = [];
 
   // ---------- THEME ----------
   function setTheme(t){
@@ -433,7 +454,8 @@
 
   // ---------- LIVE POINT LEDGER ----------
   var SCAN_TIME = "Sep 22, 2026";
-  var PLEDGES = [];
+  // LEDGER[name] = {total, coffee, brotherhood, fellowship, last, streak, log:[{cat,desc,pts,ts}]}
+  // streak = consecutive weeks (through today) with at least one coffee-chat log entry.
   var LEDGER = {};
 
   var RUBRIC = {
@@ -478,10 +500,31 @@
     var body = document.getElementById('lbBody'); body.innerHTML='';
     names.forEach(function(n,i){
       var r = LEDGER[n];
+      var streak = r.streak||0;
       var tr = document.createElement('tr');
-      tr.innerHTML = '<td class="rank">#'+(i+1)+'</td><td>'+n+'</td><td class="rank">'+r.total+'</td>'+
+      tr.innerHTML = '<td class="rank">#'+(i+1)+(i===0?' <span class="top-badge" title="Most points">🏆</span>':'')+'</td>'+
+        '<td>'+n+'</td><td class="rank">'+r.total+'</td>'+
+        '<td class="'+(streak>0?'streak-flame':'streak-0')+'">'+(streak>0 ? '🔥×'+streak : '—')+'</td>'+
         '<td>'+(r.coffee||0)+'</td><td>'+(r.brotherhood||0)+'</td><td>'+(r.fellowship||0)+'</td><td>'+(r.last||'—')+'</td>';
       body.appendChild(tr);
+    });
+  }
+  function topScorerName(){
+    var names = Object.keys(LEDGER);
+    if(!names.length) return null;
+    names.sort(function(a,b){ return LEDGER[b].total - LEDGER[a].total; });
+    return names[0];
+  }
+  function renderCollage(){
+    var empty = document.getElementById('collageEmpty'), track = document.getElementById('collageTrack');
+    if(!COLLAGE_PHOTOS.length){ empty.style.display='block'; track.style.display='none'; return; }
+    empty.style.display='none'; track.style.display='flex';
+    track.innerHTML='';
+    COLLAGE_PHOTOS.forEach(function(ph){
+      var item = document.createElement('div'); item.className='collage-item';
+      item.innerHTML = '<img src="'+ph.url+'" alt="'+(ph.caption||'')+'" loading="lazy">'+
+        (ph.caption ? '<div class="cap">'+ph.caption+'</div>' : '');
+      track.appendChild(item);
     });
   }
   function refreshStats(){
@@ -491,7 +534,8 @@
     var days = Math.max(0, Math.ceil((DEADLINE - new Date())/86400000));
     document.getElementById('statDays').textContent = days;
     document.getElementById('scanNote').textContent = 'Last scanned ' + SCAN_TIME;
-    renderRubric(); renderLeaderboard();
+    renderRubric(); renderLeaderboard(); renderCollage();
+    renderCards(); // re-render so the top-points badge stays in sync with the ledger
   }
 
   // ---------- directory ----------
@@ -500,7 +544,7 @@
 
   function renderChips(){
     var wrap = document.getElementById('chipRow');
-    var chips = ['All','E-Board','Active','Gamma','Delta','Epsilon'];
+    var chips = ['All','E-Board','Active','Pledge','Gamma','Delta','Epsilon'];
     wrap.innerHTML = '';
     chips.forEach(function(c){
       var b = document.createElement('button');
@@ -512,7 +556,7 @@
   }
   function matches(p, q){
     if(activeChip!=='All'){
-      if(['E-Board','Active'].indexOf(activeChip)>-1 && p.role!==activeChip) return false;
+      if(['E-Board','Active','Pledge'].indexOf(activeChip)>-1 && p.role!==activeChip) return false;
       if(['Gamma','Delta','Epsilon'].indexOf(activeChip)>-1 && p.cls!==activeChip) return false;
     }
     if(!q) return true;
@@ -525,18 +569,23 @@
     grid.innerHTML = '';
     var list = ALL.filter(function(p){return matches(p,q);});
     if(!list.length){ grid.innerHTML = '<div class="empty-note">No one matches that yet — try a different search.</div>'; return; }
+    var top = topScorerName();
     list.forEach(function(p){
       var card = document.createElement('div');
       card.className = 'person-card';
+      var isTop = p.role==='Pledge' && p.name===top;
+      var footer = p.role==='Pledge'
+        ? '<span class="pts">'+((LEDGER[p.name]&&LEDGER[p.name].total)||0)+' pts</span>'
+        : '<span class="pts">worth +'+(p.role==='E-Board'?5:7)+' pts</span>';
       card.innerHTML =
         '<div class="card-top">'+
           '<div class="avatar" style="background:'+CLASS_COLOR[p.cls]+'">'+initials(p.name)+'</div>'+
-          '<div><h4>'+p.name+'</h4><div class="role">'+p.role+'</div></div>'+
+          '<div><h4>'+p.name+(isTop?' <span class="top-badge" title="Most points this semester">🏆</span>':'')+'</h4><div class="role">'+p.role+'</div></div>'+
         '</div>'+
         '<span class="class-tag" style="background:color-mix(in srgb, '+CLASS_COLOR[p.cls]+' 18%, transparent);color:'+CLASS_COLOR[p.cls]+'">'+p.cls+'</span>'+
         (p.pending ? '<span class="pending-tag">not yet in directory</span>' : '')+
         '<div class="fact">'+(p.fact&&p.fact!=='—' ? p.fact : p.major)+'</div>'+
-        '<div class="card-foot"><span class="pts">worth +'+(p.role==='E-Board'?5:7)+' pts</span></div>';
+        '<div class="card-foot">'+footer+'</div>';
       card.onclick = function(){ openModal(p); };
       grid.appendChild(card);
     });
@@ -561,7 +610,7 @@
         (p.email?'<a href="mailto:'+p.email+'">✉ '+p.email+'</a>':'')+
       '</div>'+
       '<div class="socials">'+(p.ig?'<a href="https://instagram.com/'+p.ig.replace('@','')+'" target="_blank" rel="noopener">IG '+p.ig+'</a>':'')+(p.li?'<a href="https://linkedin.com/in/'+p.li+'" target="_blank" rel="noopener">LinkedIn ↗</a>':'')+'</div>'+
-      '<div class="task-box"><b>Pre-chat task ('+TASK_WEEK+'):</b> '+(p.task ? p.task : 'Not posted yet for this week.')+' <a href="https://docs.google.com/spreadsheets/d/1tULw4khgdtjeGK34LbitbBmO1g1aUudJBBo8tnno2dw/edit" target="_blank" rel="noopener">(full sheet ↗)</a> — worth +5 / -3.</div>'+
+      '<div class="task-box"><b>Pre-chat task ('+TASK_WEEK+'):</b> '+(p.task ? p.task : 'Not posted yet for this week.')+' Worth +5 / -3.</div>'+
       '<a class="meet-link" href="'+MEET_DECK+'" target="_blank" rel="noopener">🎞 Find them in the "Meet the Chapter" deck ↗</a>'+
       '<p style="margin-top:16px;font-size:12px;color:var(--text-faint);">Had this chat? Post the proof photo in <a href="https://kappathetapi-usc.slack.com/archives/C0AE6JXRXFF" target="_blank" rel="noopener">#coffee-chats</a> — it\'s what gets your points logged on the Points tab.</p>'+
       '<div class="modal-actions">'+
