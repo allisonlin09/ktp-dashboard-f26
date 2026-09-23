@@ -382,7 +382,7 @@
   // ---------- DATA (KTP External Directory + F25/S25 Membership Database, for internal chapter use) ----------
   var EBOARD = [
     {name:"Daniel Lee", cls:"Gamma", role:"E-Board", major:"AI for Business", hometown:"Wilsonville, OR", fact:"Played 4 sports in high school.", tech:"VR", work:"Pioneer Circuits", ig:"@danieljlee2", li:"daniel-lee-usc", phone:"503-939-4593", email:"dlee5819@usc.edu"},
-    {name:"Allison Lin", cls:"Gamma", role:"E-Board", major:"AI for Business", hometown:"Redondo Beach, CA", fact:"I used to have 11 bunnies.", tech:"Facial recognition", work:"Conexus Food Solutions", ig:"@allisonn.lin", li:"allisonlin9", phone:"310-294-6631", email:"linallis@usc.edu", gcal:"https://calendar.app.google/HoeeHLddDSW3ncVW7"},
+    {name:"Allison Lin", cls:"Gamma", role:"E-Board", major:"AI for Business", hometown:"Redondo Beach, CA", fact:"I used to have 11 bunnies.", tech:"Facial recognition", work:"Conexus Food Solutions", ig:"@allisonn.lin", li:"allisonlin9", phone:"310-294-6631", email:"linallis@usc.edu", gcal:"https://calendar.app.google/HoeeHLddDSW3ncVW7", task:"Schedule a coffee chat on my gcal link above, and propose we do something active for it — I'm down for anything."},
     {name:"Tanzil Hussain", cls:"Gamma", role:"E-Board", major:"AI for Business", hometown:"Seattle, WA", fact:"Into autonomous vehicles.", tech:"Autonomous vehicles", work:"Cartogram, Bank of America, Automus Consulting", ig:"@tanzilhannah", li:"tanzilhussain", phone:"425-305-6520", email:"thhussai@usc.edu"},
     {name:"Rylnn Chavez", cls:"Delta", role:"E-Board", major:"INCO + Native American Studies", hometown:"Albuquerque, NM", fact:"“Wanted in 4 states” — allegedly.", tech:"PC (League of Legends)", work:"Albuquerque Public Schools + assorted jobs", ig:"@rylnnnn__", li:"rylnnchavez", phone:"505-370-0931", email:"rlchavez@usc.edu"},
     {name:"Nick Stitle", cls:"Delta", role:"E-Board", major:"AI for Business", hometown:"Carmel, IN", fact:"Really good at Clash Royale.", tech:"PS5", work:"—", ig:"@smeigo99", li:"nicklas-stitle", phone:"317-504-1934", email:"stitle@usc.edu"},
@@ -418,6 +418,7 @@
   var CLASS_COLOR = {Gamma:"var(--gamma)", Delta:"var(--delta)", Epsilon:"var(--epsilon)"};
   var byName = {}; ALL.forEach(function(p){ byName[p.name]=p; });
 
+  var TASK_WEEK = "Week 1, 9/23–9/30";
   var MEET_DECK = "https://docs.google.com/presentation/d/1K_Zb62sSfZfKtetCu2zAPwKS9pgQ-Q0kSGol0OLvgSY/edit";
   var DEADLINE = new Date("2026-12-04T23:59:00-08:00");
 
@@ -560,7 +561,7 @@
         (p.email?'<a href="mailto:'+p.email+'">✉ '+p.email+'</a>':'')+
       '</div>'+
       '<div class="socials">'+(p.ig?'<a href="https://instagram.com/'+p.ig.replace('@','')+'" target="_blank" rel="noopener">IG '+p.ig+'</a>':'')+(p.li?'<a href="https://linkedin.com/in/'+p.li+'" target="_blank" rel="noopener">LinkedIn ↗</a>':'')+'</div>'+
-      '<div class="task-box"><b>Pre-chat task:</b> <a href="https://docs.google.com/spreadsheets/d/1tULw4khgdtjeGK34LbitbBmO1g1aUudJBBo8tnno2dw/edit" target="_blank" rel="noopener">Check this week\'s task ↗</a> — worth +5 / -3.</div>'+
+      '<div class="task-box"><b>Pre-chat task ('+TASK_WEEK+'):</b> '+(p.task ? p.task : 'Not posted yet for this week.')+' <a href="https://docs.google.com/spreadsheets/d/1tULw4khgdtjeGK34LbitbBmO1g1aUudJBBo8tnno2dw/edit" target="_blank" rel="noopener">(full sheet ↗)</a> — worth +5 / -3.</div>'+
       '<a class="meet-link" href="'+MEET_DECK+'" target="_blank" rel="noopener">🎞 Find them in the "Meet the Chapter" deck ↗</a>'+
       '<p style="margin-top:16px;font-size:12px;color:var(--text-faint);">Had this chat? Post the proof photo in <a href="https://kappathetapi-usc.slack.com/archives/C0AE6JXRXFF" target="_blank" rel="noopener">#coffee-chats</a> — it\'s what gets your points logged on the Points tab.</p>'+
       '<div class="modal-actions">'+
