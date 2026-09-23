@@ -190,6 +190,14 @@
   .nobig-wrap{display:flex;flex-wrap:wrap;gap:8px;margin-top:8px;}
   .tree-note{margin-top:18px;font-size:12px;color:var(--text-faint);}
 
+  /* ---------- RESOURCES ---------- */
+  .res-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;}
+  @media (max-width:820px){.res-grid{grid-template-columns:1fr;}}
+  .res-card{display:flex;flex-direction:column;gap:9px;padding:18px;}
+  .res-card h4{font-size:13.5px;margin-bottom:4px;}
+  .res-card a{font-size:13px;font-weight:600;}
+  .res-pending{font-size:11.5px;color:var(--text-faint);font-style:italic;}
+
   /* ---------- BUDDIES ---------- */
   .buddy-empty{border:1px dashed var(--border-strong);border-radius:var(--radius-l);padding:40px 24px;text-align:center;}
   .buddy-empty .icon{font-size:30px;margin-bottom:10px;}
@@ -233,6 +241,7 @@
     <button data-tab="points">Points</button>
     <button data-tab="tree">Family Tree</button>
     <button data-tab="buddies">Pledge Buddies</button>
+    <button data-tab="resources">Resources</button>
   </nav>
 
   <!-- DIRECTORY -->
@@ -300,7 +309,7 @@
       <div class="nobig-wrap" id="nobigWrap"></div>
       <p class="funknown" style="margin-top:10px;">Either unassigned so far, or the big just hasn't been logged here yet — send an update and it'll slot into the tree above.</p>
     </div>
-    <p class="tree-note">Rebuilt from what you sent (bigs in parentheses) plus a cross-check against the F25/S25 Membership Database responses for anyone not in the current External Directory. Bigs no longer in the directory are tagged with their class term: Mikhael Hilaly, Ellie Xing and Trinity Anele graduated Spring '26 (confirmed via the roster); Sterling and Darian are Class of Spring '27; Josh Fendi, Elaine Li, Andrea and Jessie graduated 2026 (per you). Chains beyond one generation (e.g. a former big's little who is themself a big) are nested automatically from the data.</p>
+    <p class="tree-note">Rebuilt from what you sent (bigs in parentheses) plus a cross-check against the F25/S25 Membership Database responses for anyone not in the current External Directory. Bigs no longer in the directory are tagged with their class term: Mikhael Hilaly, Ellie Xing and Trinity Anele graduated Spring '26 (confirmed via the roster); Sterling and Darian are Class of Spring '27; Josh Fendi, Elaine Li, Andrea and Jessie graduated 2026 (per you). Chains beyond one generation (e.g. a former big's little who is themself a big) are nested automatically from the data. <b>Two guesses to double check:</b> "Josh" as Caitlyn Chan's/Ellie Xing's big was assumed to be Josh Kang, not Josh Fendi; "James" as Darian's little was assumed to be James Liono, not the second unnamed "James" pending a full profile.</p>
   </section>
 
   <!-- BUDDIES -->
@@ -314,6 +323,44 @@
       <thead><tr><th>Rank</th><th>Pledge Buddies</th><th>Shared Points</th><th>Last Activity</th></tr></thead>
       <tbody id="buddyBody"></tbody>
     </table>
+  </section>
+
+  <!-- RESOURCES -->
+  <section class="panel" id="panel-resources">
+    <div class="res-grid">
+      <div class="card res-card">
+        <h4>📋 Points &amp; Requirements</h4>
+        <a href="https://docs.google.com/document/d/13Ft9rRXkh1sQxOWSGoxphkJ8mH0QKXx6dtZYMmAeXcg/edit" target="_blank" rel="noopener">Pledge Points Guide F26 ↗</a>
+        <a href="https://docs.google.com/document/d/1bTJmOQ0ZD7Ixqvfzq86VaJXUT4I62NMB2-Lpwe8-b9g/edit" target="_blank" rel="noopener">Pledge Assignment Masterdoc F26 ↗</a>
+      </div>
+      <div class="card res-card">
+        <h4>👥 Chapter &amp; Directory</h4>
+        <a href="https://docs.google.com/spreadsheets/d/1dWPomZZyaHu_tPSxJYWlO4hZcUAgRnUOOe_c5e_SeQs/edit" target="_blank" rel="noopener">KTP External Directory ↗</a>
+        <a href="https://docs.google.com/presentation/d/1K_Zb62sSfZfKtetCu2zAPwKS9pgQ-Q0kSGol0OLvgSY/edit" target="_blank" rel="noopener">Meet the Chapter deck ↗</a>
+        <a href="https://docs.google.com/presentation/d/1Hmz5UkBGFPxmoQDvMC6xx1M93gcBK4oKthZao61PWJE/edit" target="_blank" rel="noopener">Chapter Meeting #1 slides ↗</a>
+      </div>
+      <div class="card res-card">
+        <h4>🧑‍🏫 LAUNCH Mentorship &amp; Buddies</h4>
+        <a href="https://docs.google.com/forms/d/1Rt_ZVyQH-Zp6O1F12tBJ0s2GR7_G2bdVbtonhStLTW4/edit" target="_blank" rel="noopener">Pledge Buddy Matching form ↗</a>
+        <span class="res-pending">Mentor Preference Form — link posted on Slack, not captured here yet</span>
+        <span class="res-pending">Client Project access form — link posted on Slack, not captured here yet</span>
+      </div>
+      <div class="card res-card">
+        <h4>💬 Slack Channels</h4>
+        <a href="https://kappathetapi-usc.slack.com/archives/C0AE6JXRXFF" target="_blank" rel="noopener">#coffee-chats ↗</a>
+        <a href="https://kappathetapi-usc.slack.com/archives/C0ADUJC5SLF" target="_blank" rel="noopener">#points ↗</a>
+        <a href="https://kappathetapi-usc.slack.com/archives/C0AE3KZ3TQT" target="_blank" rel="noopener">#spotted ↗</a>
+        <a href="https://kappathetapi-usc.slack.com/archives/C0C1TMA3R3K" target="_blank" rel="noopener">#f26-pledge-main-chat ↗</a>
+        <a href="https://kappathetapi-usc.slack.com/archives/C0C1ACB6C6B" target="_blank" rel="noopener">#f26-pledge-announcements ↗</a>
+      </div>
+      <div class="card res-card">
+        <h4>📌 Also mentioned in Chapter Meeting #1</h4>
+        <span class="res-pending">Anonymous Complaint Form</span>
+        <span class="res-pending">F26 SWSH (merch order)</span>
+        <span class="res-pending">Photo Album</span>
+        <span class="res-pending">Ask an e-board member or check Slack for these — links weren't recoverable from the slide text.</span>
+      </div>
+    </div>
   </section>
 
   <footer class="foot">
@@ -345,7 +392,7 @@
     {name:"Ashima Gupta", cls:"Epsilon", role:"E-Board", major:"Business Administration", hometown:"Rancho Cucamonga, CA", fact:"Competitive Bollywood dancer, 8 years.", tech:"G-Cal / Notion", work:"Consulting @ EmzingoU, CorpFin @ Pulmovant", ig:"@ashima.guptaaa", li:"ashima-gupta-707133261", phone:"909-214-8768", email:"ashimagu@usc.edu"},
     {name:"Aaron Santos", cls:"Epsilon", role:"E-Board", major:"Electrical & Computer Engineering", hometown:"Chino Hills, CA", fact:"Loves rollercoasters.", tech:"Computer", work:"—", ig:"@aair_on1", li:"", phone:"909-942-0371", email:"santosam@usc.edu"},
     {name:"Alena Talreja", cls:"Epsilon", role:"E-Board", major:"CSBA", hometown:"Eastvale, CA", fact:"Got stung by a jellyfish.", tech:"Zelle", work:"AI Intern @ Kaiser", ig:"@alena_talreja", li:"alena-t-b12659260", phone:"909-816-1929", email:"alenatal@usc.edu"},
-    {name:"Cici He", cls:"Epsilon", role:"E-Board", pending:true, major:"PR & Advertising", hometown:"San Diego, CA", fact:"—", tech:"—", work:"—", ig:"@simplyyy.cici", li:"xi-li-he", phone:"980-225-3266", email:"cicihe@usc.edu"}
+    {name:"Cici He", cls:"Gamma", role:"E-Board", pending:true, major:"PR & Advertising", hometown:"San Diego, CA", fact:"—", tech:"—", work:"—", ig:"@simplyyy.cici", li:"xi-li-he", phone:"980-225-3266", email:"cicihe@usc.edu"}
   ];
   var ACTIVES = [
     {name:"Nicole Amer", cls:"Delta", role:"Active", major:"Accounting + AI Applications", hometown:"Glendora, CA", fact:"—", tech:"Camera", work:"Incoming JPMorgan", ig:"@nicole._amer", li:"nicole-amer-17563a333", phone:"626-384-1120", email:"namer@usc.edu"},
@@ -361,8 +408,8 @@
     {name:"Li Xin Ng", cls:"Epsilon", role:"Active", major:"Business Admin", hometown:"KL, Malaysia", fact:"Skis.", tech:"Digicam", work:"Various corporations", ig:"@_szn4lx", li:"lixinng01", phone:"213-364-6222", email:"lixinng@usc.edu"},
     {name:"Nikki Sanglimsuwan", cls:"Epsilon", role:"Active", major:"Law, History & Culture + Law & Tech", hometown:"Covina, CA", fact:"—", tech:"Typewriter", work:"Marketing Director @ Lvloonity", ig:"@natni.sha", li:"nikki-sanglimsuwan-97b52636b", phone:"370-915-4936", email:"nsanglim@usc.edu"},
     {name:"Natalie Wijaya", cls:"Epsilon", role:"Active", major:"CSBA", hometown:"Jakarta, Indonesia", fact:"—", tech:"Nintendo Switch", work:"—", ig:"@nataliegwijaya", li:"nataliegwijaya", phone:"626-816-1069", email:"ngwijaya@usc.edu"},
-    {name:"Armani Choy", cls:"Epsilon", role:"Active", pending:true, major:"Economics & Data Science", hometown:"San Mateo, CA", fact:"Changed majors 4 times.", tech:"AI", work:"—", ig:"@armanichoy", li:"armanichoy", phone:"650-918-2657", email:"armanic@usc.edu"},
-    {name:"Thomas Huang", cls:"Epsilon", role:"Active", pending:true, major:"Chemical Engineering", hometown:"Hsinchu, Taiwan", fact:"—", tech:"—", work:"—", ig:"@thomas_huanggg", li:"", phone:"213-234-8876", email:"huangtho@usc.edu"},
+    {name:"Armani Choy", cls:"Delta", role:"Active", pending:true, major:"Economics & Data Science", hometown:"San Mateo, CA", fact:"Changed majors 4 times.", tech:"AI", work:"—", ig:"@armanichoy", li:"armanichoy", phone:"650-918-2657", email:"armanic@usc.edu"},
+    {name:"Thomas Huang", cls:"Gamma", role:"Active", pending:true, major:"Chemical Engineering", hometown:"Hsinchu, Taiwan", fact:"—", tech:"—", work:"—", ig:"@thomas_huanggg", li:"", phone:"213-234-8876", email:"huangtho@usc.edu"},
     {name:"Andrew Chan", cls:"Epsilon", role:"Active", pending:true, major:"CSBA", hometown:"Chicago, IL", fact:"Spring admit.", tech:"PCs", work:"—", ig:"@andrewmattchan", li:"andrew-chan-00b856261", phone:"773-621-5096", email:"achan391@usc.edu"}
   ];
   var ALL = EBOARD.concat(ACTIVES);
@@ -382,7 +429,7 @@
   (function(){ var saved='light'; try{ saved = localStorage.getItem('cc_theme')||'light'; }catch(e){} setTheme(saved); })();
 
   // ---------- LIVE POINT LEDGER ----------
-  var SCAN_TIME = "Sep 21, 2026";
+  var SCAN_TIME = "Sep 22, 2026";
   var PLEDGES = [];
   var LEDGER = {};
 
@@ -567,15 +614,18 @@
       {name:"Jessie", children:[]}
     ]},
     {name:"Sterling", children:[
-      {name:"Nick Stitle", children:[]},
-      {name:"Josh Kang", children:[]},
+      {name:"Nick Stitle", children:[ {name:"Natalie Wijaya", children:[]}, {name:"Riley London", children:[]} ]},
+      {name:"Josh Kang", children:[ {name:"Caitlyn Chan", children:[]}, {name:"Ellie Xing", children:[]} ]},
       {name:"Angelaa Guptaa", children:[]}
     ]},
-    {name:"Simra Zargar", children:[ {name:"Cindy Chang", children:[]} ]},
+    {name:"Simra Zargar", children:[ {name:"Cindy Chang", children:[]}, {name:"Lucy Lu", children:[]} ]},
     {name:"Cici He", children:[ {name:"Sophie Chuang", children:[]} ]},
-    {name:"Andrew Chan", children:[ {name:"Li Xin Ng", children:[]} ]}
+    {name:"Andrew Chan", children:[ {name:"Li Xin Ng", children:[]} ]},
+    {name:"Sam Guernsey", children:[ {name:"Nicole Amer", children:[]}, {name:"Ashima Gupta", children:[]}, {name:"Hayley Chung", children:[]} ]},
+    {name:"Mikhael Hilaly", children:[ {name:"Addison London", children:[]} ]},
+    {name:"Darian", children:[ {name:"James Liono", children:[]} ]}
   ];
-  var NO_BIG_LISTED = ["Sam Guernsey","Nicole Amer","Ashima Gupta","Caitlyn Chan","Hayley Chung","James Liono","Riley London","Addison London","Lucy Lu","Nikki Sanglimsuwan","Natalie Wijaya","Armani Choy","Thomas Huang"];
+  var NO_BIG_LISTED = ["Nikki Sanglimsuwan","Armani Choy","Thomas Huang"];
 
   function classColorFor(name){
     var p = byName[name];
