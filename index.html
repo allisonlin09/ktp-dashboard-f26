@@ -289,17 +289,17 @@
   </header>
 
   <nav class="tabs">
-    <button class="active" data-tab="mine">My Progress</button>
-    <button data-tab="directory">Directory</button>
+    <button class="active" data-tab="directory">Directory</button>
     <button data-tab="points">Points</button>
+    <button data-tab="mine">Chat & Track</button>
     <button data-tab="tree">Family Tree</button>
     <button data-tab="buddies">Pledge Buddies</button>
     <button data-tab="resources">Resources</button>
   </nav>
 
   <!-- MY PROGRESS -->
-  <section class="panel active" id="panel-mine">
-    <p class="mine-forwho">👤 <b>This tab is for pledges only</b> — it matches you (a pledge) with an active or e-board member in KTP to coffee chat. Actives/e-board don't go through the pledge point process, so if one of you types your name in here, you won't have any points to show — that's expected, this feature isn't for you.</p>
+  <section class="panel" id="panel-mine">
+    <p class="mine-forwho">👤 <b>This tab is for pledges</b> — it matches you with an e-board member to coffee chat and tracks your points.</p>
     <div class="card mine-id" id="mineIdCard"></div>
     <div id="mineContent" style="display:none;">
       <div class="mine-summary" id="mineSummary"></div>
@@ -322,7 +322,7 @@
   </section>
 
   <!-- DIRECTORY -->
-  <section class="panel" id="panel-directory">
+  <section class="panel active" id="panel-directory">
     <div class="dir-controls">
       <input type="search" id="searchBox" placeholder="Search name, major, fun fact...">
       <div class="chip-row" id="chipRow"></div>
