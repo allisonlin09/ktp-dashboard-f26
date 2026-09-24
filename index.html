@@ -368,21 +368,21 @@
     <div class="feed-grid">
       <div class="card feed-card">
         <h4>📸 Coffee chat proof</h4>
-        <div class="chan">#coffee-chats</div>
+        <div class="chan">#coffee-chats-f26</div>
         <div class="feed-empty" id="feedCoffee">No photos posted yet</div>
-        <a class="chan-link" href="https://kappathetapi-usc.slack.com/archives/C0AE6JXRXFF" target="_blank" rel="noopener">Open channel ↗</a>
+        <a class="chan-link" href="https://kappathetapi-usc.slack.com/archives/C0C3Y8LGZ53" target="_blank" rel="noopener">Open channel ↗</a>
       </div>
       <div class="card feed-card">
         <h4>👀 Spotted</h4>
-        <div class="chan">#spotted</div>
-        <div class="feed-empty" id="feedSpotted">No photos posted yet</div>
-        <a class="chan-link" href="https://kappathetapi-usc.slack.com/archives/C0AE3KZ3TQT" target="_blank" rel="noopener">Open channel ↗</a>
+        <div class="chan">#spotted-f26</div>
+        <div class="feed-empty" id="feedSpotted">Sept 23 — Matthew Lin spotted Alena Talreja &amp; Tanzil Hussain at HeyTea; Ryogo Otsuka spotted Ting Ting Chen; Ting Ting Chen snapped Ryogo Otsuka &amp; Matthew Lin and separately Courtney Kijewski.</div>
+        <a class="chan-link" href="https://kappathetapi-usc.slack.com/archives/C0C1RML218A" target="_blank" rel="noopener">Open channel ↗</a>
       </div>
       <div class="card feed-card">
         <h4>📣 Announcements</h4>
-        <div class="chan">#points · #f26-pledge-announcements · #pledge-announcements</div>
+        <div class="chan">#points-f26 · #pledge-announcements-f26</div>
         <div class="feed-empty" id="feedAnn">Sept 23 (7:01 PM) — Room change: chapter meeting moved to DMC 203 (not 260), still 8 PM. — Nick Stitle<br>Sept 23 (11:49 AM) — First chapter meeting reminder; have your "About Me" slide ready. — Nick Stitle</div>
-        <a class="chan-link" href="https://kappathetapi-usc.slack.com/archives/C0ADUJC5SLF" target="_blank" rel="noopener">Open #points ↗</a>
+        <a class="chan-link" href="https://kappathetapi-usc.slack.com/archives/C0C456PA1QR" target="_blank" rel="noopener">Open #points-f26 ↗</a>
       </div>
     </div>
   </section>
@@ -437,9 +437,9 @@
       </div>
       <div class="card res-card">
         <h4>💬 Slack Channels</h4>
-        <a href="https://kappathetapi-usc.slack.com/archives/C0AE6JXRXFF" target="_blank" rel="noopener">#coffee-chats ↗</a>
-        <a href="https://kappathetapi-usc.slack.com/archives/C0ADUJC5SLF" target="_blank" rel="noopener">#points ↗</a>
-        <a href="https://kappathetapi-usc.slack.com/archives/C0AE3KZ3TQT" target="_blank" rel="noopener">#spotted ↗</a>
+        <a href="https://kappathetapi-usc.slack.com/archives/C0C3Y8LGZ53" target="_blank" rel="noopener">#coffee-chats-f26 ↗</a>
+        <a href="https://kappathetapi-usc.slack.com/archives/C0C456PA1QR" target="_blank" rel="noopener">#points-f26 ↗</a>
+        <a href="https://kappathetapi-usc.slack.com/archives/C0C1RML218A" target="_blank" rel="noopener">#spotted-f26 ↗</a>
         <a href="https://kappathetapi-usc.slack.com/archives/C0C1TMA3R3K" target="_blank" rel="noopener">#f26-pledge-main-chat ↗</a>
         <a href="https://kappathetapi-usc.slack.com/archives/C0C1ACB6C6B" target="_blank" rel="noopener">#f26-pledge-announcements ↗</a>
       </div>
@@ -555,7 +555,19 @@
   var SCAN_TIME = "Sep 24, 2026";
   // LEDGER[name] = {total, coffee, brotherhood, fellowship, last, streak, log:[{cat,desc,pts,ts}]}
   // streak = consecutive weeks (through today) with at least one coffee-chat log entry.
-  var LEDGER = {};
+  var LEDGER = {
+    "Jason Lee": {total:1, coffee:0, brotherhood:0, fellowship:1, last:"Sep 24, 2026", streak:0, log:[
+      {cat:"fellowship", desc:"E-board discretionary — answered questions (per Allison Lin)", pts:1, ts:"Sep 24, 2026"}
+    ]},
+    "Ryogo Otsuka": {total:1, coffee:0, brotherhood:0, fellowship:1, last:"Sep 23, 2026", streak:0, log:[
+      {cat:"fellowship", desc:"Spotted Ting Ting Chen", pts:1, ts:"Sep 23, 2026"}
+    ]},
+    "Matthew Lin": {total:-3, coffee:0, brotherhood:0, fellowship:-3, last:"Sep 24, 2026", streak:0, log:[
+      {cat:"fellowship", desc:"Spotted Alena Talreja at HeyTea", pts:1, ts:"Sep 23, 2026"},
+      {cat:"fellowship", desc:"Spotted Tanzil Hussain at HeyTea", pts:1, ts:"Sep 23, 2026"},
+      {cat:"fellowship", desc:"Deduction — forgot Ting Ting Chen's KTP position (per Ting Ting Chen)", pts:-5, ts:"Sep 24, 2026"}
+    ]}
+  };
 
   var RUBRIC = {
     "Involvement": [
@@ -857,7 +869,7 @@
       '<div class="socials">'+(p.ig?'<a href="https://instagram.com/'+p.ig.replace('@','')+'" target="_blank" rel="noopener">IG '+p.ig+'</a>':'')+(p.li?'<a href="https://linkedin.com/in/'+p.li+'" target="_blank" rel="noopener">LinkedIn ↗</a>':'')+'</div>'+
       (p.role==='E-Board' ? '<div class="task-box"><b>Pre-chat task ('+TASK_WEEK+'):</b> '+(p.task ? p.task : 'Not posted yet for this week.')+' Worth +5 / -3.</div>' : '')+
       '<a class="meet-link" href="'+MEET_DECK+'" target="_blank" rel="noopener">🎞 Find them in the "Meet the Chapter" deck ↗</a>'+
-      '<p style="margin-top:16px;font-size:12px;color:var(--text-faint);">Had this chat? Post the proof photo in <a href="https://kappathetapi-usc.slack.com/archives/C0AE6JXRXFF" target="_blank" rel="noopener">#coffee-chats</a> — it\'s what gets your points logged on the Points tab.</p>'+
+      '<p style="margin-top:16px;font-size:12px;color:var(--text-faint);">Had this chat? Post the proof photo in <a href="https://kappathetapi-usc.slack.com/archives/C0C3Y8LGZ53" target="_blank" rel="noopener">#coffee-chats-f26</a> — it\'s what gets your points logged on the Points tab.</p>'+
       '<div class="modal-actions">'+
         (p.gcal ? '<a class="btn btn-primary" href="'+p.gcal+'" target="_blank" rel="noopener">📅 Schedule a coffee chat</a>' : '')+
         '<button class="btn btn-ghost" id="closeBtn">Close</button>'+
