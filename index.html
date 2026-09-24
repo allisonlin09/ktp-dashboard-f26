@@ -259,6 +259,16 @@
   .buddy-table th{text-align:left;color:var(--text-faint);font-family:var(--font-mono);font-size:10.5px;text-transform:uppercase;letter-spacing:.04em;padding:8px 10px;border-bottom:1px solid var(--border);}
   .buddy-table td{padding:10px 10px;border-bottom:1px solid var(--border);color:var(--text-dim);}
   .rank{font-family:var(--font-mono);color:var(--accent-2);}
+  .pair-sub{font-size:12.5px;color:var(--text-faint);margin-bottom:16px;}
+  .pair-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;}
+  @media (max-width:820px){.pair-grid{grid-template-columns:1fr;}}
+  .pair-card{padding:16px;}
+  .pair-card .plabel{font-family:var(--font-mono);font-size:10px;color:var(--text-faint);text-transform:uppercase;letter-spacing:.05em;margin-bottom:10px;}
+  .pair-card .pperson{display:flex;align-items:center;gap:9px;padding:6px 0;}
+  .pair-card .pperson+.pperson{border-top:1px dashed var(--border);margin-top:4px;padding-top:10px;}
+  .pair-card .pname{font-weight:700;font-size:13px;}
+  .pair-card .pphone{font-family:var(--font-mono);font-size:11px;color:var(--text-faint);}
+  .pair-pts{margin-top:10px;font-family:var(--font-mono);font-size:11px;color:var(--accent-2);}
 
   footer.foot{margin-top:44px;padding-top:18px;border-top:1px solid var(--border);display:flex;gap:18px;flex-wrap:wrap;font-size:12px;color:var(--text-faint);}
   footer.foot a{color:var(--text-dim);}
@@ -397,15 +407,17 @@
 
   <!-- BUDDIES -->
   <section class="panel" id="panel-buddies">
-    <div class="buddy-empty" id="buddyEmpty">
+    <div class="buddy-empty" id="buddyEmpty" style="display:none;">
       <div class="icon">👯</div>
       <h3>Pledge buddy pairs haven't been matched yet</h3>
+<<<<<<< Updated upstream
       <p>The <a href="https://docs.google.com/forms/d/1Rt_ZVyQH-Zp6O1F12tBJ0s2GR7_G2bdVbtonhStLTW4/viewform" target="_blank" rel="noopener">Pledge Buddy Matching form</a> just went out (Sept 20). Once pairs are announced, this tab turns into a leaderboard ranking each buddy pair by the points they earn doing tasks, outings, and assignments <i>together</i> — pulled straight from the individual points trackers.</p>
+=======
+      <p>The <a href="https://docs.google.com/forms/d/1Rt_ZVyQH-Zp6O1F12tBJ0s2GR7_G2bdVbtonhStLTW4/viewform" target="_blank" rel="noopener">Pledge Buddy Matching form</a> just went out. Once pairs are announced, this tab shows each pair and — once real activity is logged — the points they've earned doing tasks and outings <i>together</i>.</p>
+>>>>>>> Stashed changes
     </div>
-    <table class="buddy-table" id="buddyTable" style="display:none;">
-      <thead><tr><th>Rank</th><th>Pledge Buddies</th><th>Shared Points</th><th>Last Activity</th></tr></thead>
-      <tbody id="buddyBody"></tbody>
-    </table>
+    <p class="pair-sub">This semester's pairings. Combined points will show up here automatically once buddy activity gets logged.</p>
+    <div class="pair-grid" id="pairGrid"></div>
   </section>
 
   <!-- RESOURCES -->
@@ -494,10 +506,34 @@
     {name:"Thomas Huang", cls:"Gamma", role:"Active", major:"Chemical Engineering", hometown:"Zhubei, Taiwan", fact:"—", tech:"Drone", work:"—", industry:"Chemical Engineering, Research", ig:"@thomas_huanggg", li:"thomas-huang-360523322", phone:"213-234-8876", email:"huangtho@usc.edu"},
     {name:"Andrew Chan", cls:"Delta", role:"Active", major:"Econ and Data Science", hometown:"Chicago, IL", fact:"Spring admit.", tech:"PC", work:"—", industry:"—", ig:"@andrewmattchan", li:"andrew-chan-00b856261", phone:"773-621-5096", email:"achan391@usc.edu"}
   ];
-  // PLEDGES: empty until the F26 pledge class is added to the official directory. Once the
-  // routine adds real entries here (name, cls:"Pledge", major, hometown, fact, ig, li), they
-  // show up in the Directory tab automatically, and the top scorer in LEDGER gets a badge.
-  var PLEDGES = [];
+  // F26 pledge class, confirmed via the Pledge Buddy pairing sheet. Bio fields unknown until
+  // pledges are added to the External Directory — left as "—" rather than guessed. Pledge class
+  // letter (Zeta or whatever's next) is unconfirmed until Big/Little reveal, so cls stays "Pledge".
+  var PLEDGES = [
+    {name:"Jason Lee", cls:"Pledge", role:"Pledge", major:"—", hometown:"—", fact:"—", tech:"—", work:"—", industry:"—", ig:"", li:"", phone:"213-453-5537"},
+    {name:"Ryogo Otsuka", cls:"Pledge", role:"Pledge", major:"—", hometown:"—", fact:"—", tech:"—", work:"—", industry:"—", ig:"", li:"", phone:"213-245-6365"},
+    {name:"Iain Yang", cls:"Pledge", role:"Pledge", major:"—", hometown:"—", fact:"—", tech:"—", work:"—", industry:"—", ig:"", li:"", phone:"323-237-7080"},
+    {name:"Agnes Chen", cls:"Pledge", role:"Pledge", major:"—", hometown:"—", fact:"—", tech:"—", work:"—", industry:"—", ig:"", li:"", phone:"518-953-7740"},
+    {name:"Austin Chen", cls:"Pledge", role:"Pledge", major:"—", hometown:"—", fact:"—", tech:"—", work:"—", industry:"—", ig:"", li:"", phone:"650-600-8340"},
+    {name:"Chloe Hoang", cls:"Pledge", role:"Pledge", major:"—", hometown:"—", fact:"—", tech:"—", work:"—", industry:"—", ig:"", li:"", phone:"916-475-5583"},
+    {name:"Carter Lin", cls:"Pledge", role:"Pledge", major:"—", hometown:"—", fact:"—", tech:"—", work:"—", industry:"—", ig:"", li:"", phone:"949-241-1840"},
+    {name:"Kyle Banducci", cls:"Pledge", role:"Pledge", major:"—", hometown:"—", fact:"—", tech:"—", work:"—", industry:"—", ig:"", li:"", phone:"510-424-3751"},
+    {name:"Alice Zhao", cls:"Pledge", role:"Pledge", major:"—", hometown:"—", fact:"—", tech:"—", work:"—", industry:"—", ig:"", li:"", phone:"425-599-6396"},
+    {name:"Selina Xu", cls:"Pledge", role:"Pledge", major:"—", hometown:"—", fact:"—", tech:"—", work:"—", industry:"—", ig:"", li:"", phone:"213-858-1638"},
+    {name:"Leilani Ybarra", cls:"Pledge", role:"Pledge", major:"—", hometown:"—", fact:"—", tech:"—", work:"—", industry:"—", ig:"", li:"", phone:"909-575-7074"},
+    {name:"Anushka Patil", cls:"Pledge", role:"Pledge", major:"—", hometown:"—", fact:"—", tech:"—", work:"—", industry:"—", ig:"", li:"", phone:"408-718-8226"},
+    {name:"Matthew Lin", cls:"Pledge", role:"Pledge", major:"—", hometown:"—", fact:"—", tech:"—", work:"—", industry:"—", ig:"", li:"", phone:"703-425-6152"},
+    {name:"Hans Chiang", cls:"Pledge", role:"Pledge", major:"—", hometown:"—", fact:"—", tech:"—", work:"—", industry:"—", ig:"", li:"", phone:"213-301-8280"},
+    {name:"Chloe Dalmacio", cls:"Pledge", role:"Pledge", major:"—", hometown:"—", fact:"—", tech:"—", work:"—", industry:"—", ig:"", li:"", phone:"657-283-9033"},
+    {name:"Courtney Kijewski", cls:"Pledge", role:"Pledge", major:"—", hometown:"—", fact:"—", tech:"—", work:"—", industry:"—", ig:"", li:"", phone:"202-568-4789"},
+    {name:"Yuki Watanabe", cls:"Pledge", role:"Pledge", major:"—", hometown:"—", fact:"—", tech:"—", work:"—", industry:"—", ig:"", li:"", phone:"925-471-1540"},
+    {name:"Rich Wu", cls:"Pledge", role:"Pledge", major:"—", hometown:"—", fact:"—", tech:"—", work:"—", industry:"—", ig:"", li:"", phone:"415-290-3472"}
+  ];
+  var BUDDY_PAIRS = [
+    ["Jason Lee","Ryogo Otsuka"], ["Iain Yang","Agnes Chen"], ["Austin Chen","Chloe Hoang"],
+    ["Carter Lin","Kyle Banducci"], ["Alice Zhao","Selina Xu"], ["Leilani Ybarra","Anushka Patil"],
+    ["Matthew Lin","Hans Chiang"], ["Chloe Dalmacio","Courtney Kijewski"], ["Yuki Watanabe","Rich Wu"]
+  ];
   var ALL = EBOARD.concat(ACTIVES).concat(PLEDGES);
   var CLASS_COLOR = {Gamma:"var(--gamma)", Delta:"var(--delta)", Epsilon:"var(--epsilon)", Pledge:"var(--zeta)"};
   var byName = {}; ALL.forEach(function(p){ byName[p.name]=p; });
@@ -604,6 +640,7 @@
     renderRubric(); renderLeaderboard(); renderCollage();
     renderCards(); // re-render so the top-points badge stays in sync with the ledger
     renderMine();
+    if(document.getElementById('pairGrid')) renderBuddies();
   }
 
   // ---------- MY PROGRESS ----------
@@ -937,10 +974,41 @@
     });
   }
 
+  // ---------- pledge buddies ----------
+  function pairSharedPoints(a, b){
+    var ra = LEDGER[a], rb = LEDGER[b];
+    return (ra?ra.total:0) + (rb?rb.total:0);
+  }
+  function renderBuddies(){
+    var grid = document.getElementById('pairGrid');
+    var empty = document.getElementById('buddyEmpty');
+    if(!BUDDY_PAIRS.length){ empty.style.display='block'; grid.innerHTML=''; return; }
+    empty.style.display='none';
+    grid.innerHTML = BUDDY_PAIRS.map(function(pair, i){
+      var pts = pairSharedPoints(pair[0], pair[1]);
+      return '<div class="card pair-card">'+
+        '<div class="plabel">Pair '+(i+1)+'</div>'+
+        pair.map(function(name){
+          var p = byName[name];
+          var phone = p ? p.phone : '';
+          return '<div class="pperson" data-name="'+name+'" style="'+(p?'cursor:pointer;':'')+'">'+
+            '<div class="avatar" style="width:30px;height:30px;font-size:11px;background:var(--zeta)">'+initials(name)+'</div>'+
+            '<div><div class="pname">'+name+'</div>'+(phone?'<div class="pphone">'+phone+'</div>':'')+'</div>'+
+          '</div>';
+        }).join('')+
+        (pts>0 ? '<div class="pair-pts">'+pts+' combined pts logged</div>' : '')+
+      '</div>';
+    }).join('');
+    Array.prototype.forEach.call(grid.querySelectorAll('.pperson'), function(el){
+      el.onclick = function(){ var p = byName[el.dataset.name]; if(p) openModal(p); };
+    });
+  }
+
   // ---------- init ----------
   renderChips();
   renderCards();
   renderTree();
+  renderBuddies();
   refreshStats();
   setInterval(refreshStats, 60000);
 })();
