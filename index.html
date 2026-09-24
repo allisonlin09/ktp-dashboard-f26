@@ -381,7 +381,7 @@
       <div class="card feed-card">
         <h4>📣 Announcements</h4>
         <div class="chan">#points · #f26-pledge-announcements · #pledge-announcements</div>
-        <div class="feed-empty" id="feedAnn">Sept 23 — First chapter meeting tonight reminder (8 PM, DMC 260); have your "About Me" slide ready. — Nick Stitle</div>
+        <div class="feed-empty" id="feedAnn">Sept 23 (7:01 PM) — Room change: chapter meeting moved to DMC 203 (not 260), still 8 PM. — Nick Stitle<br>Sept 23 (11:49 AM) — First chapter meeting reminder; have your "About Me" slide ready. — Nick Stitle</div>
         <a class="chan-link" href="https://kappathetapi-usc.slack.com/archives/C0ADUJC5SLF" target="_blank" rel="noopener">Open #points ↗</a>
       </div>
     </div>
@@ -410,11 +410,7 @@
     <div class="buddy-empty" id="buddyEmpty" style="display:none;">
       <div class="icon">👯</div>
       <h3>Pledge buddy pairs haven't been matched yet</h3>
-<<<<<<< Updated upstream
-      <p>The <a href="https://docs.google.com/forms/d/1Rt_ZVyQH-Zp6O1F12tBJ0s2GR7_G2bdVbtonhStLTW4/viewform" target="_blank" rel="noopener">Pledge Buddy Matching form</a> just went out (Sept 20). Once pairs are announced, this tab turns into a leaderboard ranking each buddy pair by the points they earn doing tasks, outings, and assignments <i>together</i> — pulled straight from the individual points trackers.</p>
-=======
       <p>The <a href="https://docs.google.com/forms/d/1Rt_ZVyQH-Zp6O1F12tBJ0s2GR7_G2bdVbtonhStLTW4/viewform" target="_blank" rel="noopener">Pledge Buddy Matching form</a> just went out. Once pairs are announced, this tab shows each pair and — once real activity is logged — the points they've earned doing tasks and outings <i>together</i>.</p>
->>>>>>> Stashed changes
     </div>
     <p class="pair-sub">This semester's pairings. Combined points will show up here automatically once buddy activity gets logged.</p>
     <div class="pair-grid" id="pairGrid"></div>
@@ -473,10 +469,10 @@
 (function(){
   // ---------- DATA (KTP External Directory + F25/S25 Membership Database, for internal chapter use) ----------
   var EBOARD = [
-    {name:"Daniel Lee", cls:"Gamma", role:"E-Board", major:"AI for Business", hometown:"Wilsonville, OR", fact:"Played 4 sports in high school.", tech:"VR", work:"Pioneer Circuits", industry:"PM, SWE, AI/ML", ig:"@danieljlee2", li:"daniel-lee-usc", phone:"503-939-4593", email:"dlee5819@usc.edu"},
+    {name:"Daniel Lee", cls:"Gamma", role:"E-Board", major:"AI for Business", hometown:"Wilsonville, OR", fact:"Played 4 sports in high school.", tech:"VR", work:"Pioneer Circuits", industry:"PM, SWE, AI/ML", ig:"@danieljlee2", li:"daniel-lee-usc", phone:"503-939-4593", email:"dlee5819@usc.edu", task:"Product sense case"},
     {name:"Allison Lin", cls:"Gamma", role:"E-Board", major:"AI for Business", hometown:"Redondo Beach, CA", fact:"I used to have 11 bunnies.", tech:"Facial recognition", work:"Northrop Grumman (Program Management), Conexus Food Solutions", industry:"PM, Tech Consulting, Entertainment", ig:"@allisonn.lin", li:"allisonlin9", phone:"310-294-6631", email:"linallis@usc.edu", gcal:"https://calendar.app.google/HoeeHLddDSW3ncVW7", task:"Schedule a coffee chat with me on my gcal link. bring me 3 bananas but post a pledge tok with you acting like you're a minion addicted to bananas. Look really into it, i'm looking for enthusiam and passion for bananas like a true minion. Act like one and also talk in the minion voice. Announce to the entire dining hall that you are claiming bananas for \"queen allison\" add a \"baboy\""},
     {name:"Tanzil Hussain", cls:"Gamma", role:"E-Board", major:"AI for Business", hometown:"Seattle, WA", fact:"—", tech:"Noise cancelling headphones", work:"Cartogram, Bank of America, Automus Consulting", industry:"PM", ig:"@tanzilhannah", li:"tanzilhussain", phone:"425-305-6520", email:"thhussai@usc.edu", task:"Write me a poem about why you want to coffee chat me. No AI generating, I will check. Put some thought into it."},
-    {name:"Rylnn Chavez", cls:"Delta", role:"E-Board", major:"INCO + Native American Studies", hometown:"Albuquerque, NM", fact:"“Wanted in 4 states” — allegedly.", tech:"PC (League of Legends)", work:"Albuquerque Public Schools + assorted jobs", industry:"—", ig:"@rylnnnn__", li:"rylnnchavez", phone:"505-370-0931", email:"rlchavez@usc.edu"},
+    {name:"Rylnn Chavez", cls:"Delta", role:"E-Board", major:"INCO + Native American Studies", hometown:"Albuquerque, NM", fact:"“Wanted in 4 states” — allegedly.", tech:"PC (League of Legends)", work:"Albuquerque Public Schools + assorted jobs", industry:"—", ig:"@rylnnnn__", li:"rylnnchavez", phone:"505-370-0931", email:"rlchavez@usc.edu", task:"BOTH: figure out my favorite rapper and draw me as this person (2 drawings) — must be artistic and creative, don't ask around to figure it out. Also bring me to the dining hall for this coffee chat (freshmen + sophomores). If no meal plan, find out my favorite song too and prepare a karaoke number to it."},
     {name:"Nick Stitle", cls:"Delta", role:"E-Board", major:"AI for Business", hometown:"Carmel, IN", fact:"Really good at Clash Royale.", tech:"PS5", work:"AI intern @ Automus Consulting", industry:"PM", ig:"@smeigo99", li:"nicklas-stitle", phone:"317-504-1934", email:"stitle@usc.edu", task:"Go through my insta (smeigo99) and come prepared to tell me which of my posts is your favorite and why (put a lot of thought into this)."},
     {name:"Cindy Chang", cls:"Epsilon", role:"E-Board", major:"AI for Business", hometown:"Taipei, Taiwan", fact:"Was on varsity girls basketball.", tech:"Digicam", work:"Taipei City Council intern, B4 Sounds (indie music label)", industry:"PM, Consulting", ig:"@cindychang0213", li:"shinyuchang", phone:"408-484-7578", email:"cchang30@usc.edu", task:"Bring me a banana from any dining hall and choose one song that represents your first impression of me. Play me the best 30 seconds and explain your choice in under two minutes. Don't spend money, if you can't find a banana/don't have a dining plan, just come without one!"},
     {name:"Ting Ting Chen", cls:"Epsilon", role:"E-Board", major:"Quantitative Biology", hometown:"Chicago, IL", fact:"Dissected 10 rats in one sitting.", tech:"Rice cooker", work:"BU Connizzo Lab, TruBridge, Extern", industry:"—", ig:"@ttting.chen", li:"ttingchen", phone:"312-709-3355", email:"tchen173@usc.edu", task:"Look through my Google Calendar (search up my name in GCal) and find a time that works for both of you. As a pair, choreograph to Soda Pop from K-Pop Demon Hunters (0:00 - 1:25). Explain your artistry and be prepared to perform it at 9/30 chapter, with full face makeup and outfits. Treat it like you are performing at a concert in front of 50,000 fans at BMO Stadium."},
