@@ -375,13 +375,13 @@
       <div class="card feed-card">
         <h4>👀 Spotted</h4>
         <div class="chan">#spotted-f26</div>
-        <div class="feed-empty" id="feedSpotted">Sept 23 — Matthew Lin spotted Alena Talreja &amp; Tanzil Hussain at HeyTea; Ryogo Otsuka spotted Ting Ting Chen; Ting Ting Chen snapped Ryogo Otsuka &amp; Matthew Lin and separately Courtney Kijewski.</div>
+        <div class="feed-empty" id="feedSpotted">Sept 23–25 — busy few days in #spotted-f26: Matthew Lin is on a spotting streak (Alena Talreja, Tanzil Hussain, Thomas Huang, Andrew Chan, Angelaa Guptaa, Cindy Chang); Ryogo Otsuka, Jason Lee, Alice Zhao, Kyle Banducci, Carter Lin, Hans Chiang &amp; Austin Chen each spotted an e-board/active too.</div>
         <a class="chan-link" href="https://kappathetapi-usc.slack.com/archives/C0C1RML218A" target="_blank" rel="noopener">Open channel ↗</a>
       </div>
       <div class="card feed-card">
         <h4>📣 Announcements</h4>
         <div class="chan">#points-f26 · #pledge-announcements-f26</div>
-        <div class="feed-empty" id="feedAnn">Sept 23 (7:01 PM) — Room change: chapter meeting moved to DMC 203 (not 260), still 8 PM. — Nick Stitle<br>Sept 23 (11:49 AM) — First chapter meeting reminder; have your "About Me" slide ready. — Nick Stitle</div>
+        <div class="feed-empty" id="feedAnn">Sept 24 (9:43 PM) — Mentorship Preference Form due tonight (Sept 25); forms linked in Slack. — Angelaa Guptaa<br>Sept 23 (7:01 PM) — Room change: chapter meeting moved to DMC 203 (not 260), still 8 PM. — Nick Stitle<br>Sept 23 (11:49 AM) — First chapter meeting reminder; have your "About Me" slide ready. — Nick Stitle</div>
         <a class="chan-link" href="https://kappathetapi-usc.slack.com/archives/C0C456PA1QR" target="_blank" rel="noopener">Open #points-f26 ↗</a>
       </div>
     </div>
@@ -552,20 +552,41 @@
   (function(){ var saved='light'; try{ saved = localStorage.getItem('cc_theme')||'light'; }catch(e){} setTheme(saved); })();
 
   // ---------- LIVE POINT LEDGER ----------
-  var SCAN_TIME = "Sep 24, 2026";
+  var SCAN_TIME = "Sep 25, 2026";
   // LEDGER[name] = {total, coffee, brotherhood, fellowship, last, streak, log:[{cat,desc,pts,ts}]}
   // streak = consecutive weeks (through today) with at least one coffee-chat log entry.
   var LEDGER = {
-    "Jason Lee": {total:1, coffee:0, brotherhood:0, fellowship:1, last:"Sep 24, 2026", streak:0, log:[
-      {cat:"fellowship", desc:"E-board discretionary — answered questions (per Allison Lin)", pts:1, ts:"Sep 24, 2026"}
+    "Jason Lee": {total:2, coffee:0, brotherhood:0, fellowship:2, last:"Sep 24, 2026", streak:0, log:[
+      {cat:"fellowship", desc:"E-board discretionary — answered questions (per Allison Lin)", pts:1, ts:"Sep 24, 2026"},
+      {cat:"fellowship", desc:"Spotted Cindy Chang", pts:1, ts:"Sep 24, 2026"}
     ]},
-    "Ryogo Otsuka": {total:1, coffee:0, brotherhood:0, fellowship:1, last:"Sep 23, 2026", streak:0, log:[
-      {cat:"fellowship", desc:"Spotted Ting Ting Chen", pts:1, ts:"Sep 23, 2026"}
+    "Ryogo Otsuka": {total:2, coffee:0, brotherhood:0, fellowship:2, last:"Sep 24, 2026", streak:0, log:[
+      {cat:"fellowship", desc:"Spotted Ting Ting Chen", pts:1, ts:"Sep 23, 2026"},
+      {cat:"fellowship", desc:"Spotted Rylnn Chavez at TCC", pts:1, ts:"Sep 24, 2026"}
     ]},
-    "Matthew Lin": {total:-3, coffee:0, brotherhood:0, fellowship:-3, last:"Sep 24, 2026", streak:0, log:[
+    "Austin Chen": {total:1, coffee:0, brotherhood:0, fellowship:1, last:"Sep 25, 2026", streak:0, log:[
+      {cat:"fellowship", desc:"Spotted Angelaa Guptaa", pts:1, ts:"Sep 25, 2026"}
+    ]},
+    "Carter Lin": {total:1, coffee:0, brotherhood:0, fellowship:1, last:"Sep 25, 2026", streak:0, log:[
+      {cat:"fellowship", desc:"Spotted Aaron Santos", pts:1, ts:"Sep 25, 2026"}
+    ]},
+    "Kyle Banducci": {total:1, coffee:0, brotherhood:0, fellowship:1, last:"Sep 24, 2026", streak:0, log:[
+      {cat:"fellowship", desc:"Spotted Allison Lin", pts:1, ts:"Sep 24, 2026"}
+    ]},
+    "Alice Zhao": {total:1, coffee:0, brotherhood:0, fellowship:1, last:"Sep 24, 2026", streak:0, log:[
+      {cat:"fellowship", desc:"Spotted Sophie Chuang at EVK", pts:1, ts:"Sep 24, 2026"}
+    ]},
+    "Matthew Lin": {total:1, coffee:0, brotherhood:0, fellowship:1, last:"Sep 25, 2026", streak:0, log:[
       {cat:"fellowship", desc:"Spotted Alena Talreja at HeyTea", pts:1, ts:"Sep 23, 2026"},
       {cat:"fellowship", desc:"Spotted Tanzil Hussain at HeyTea", pts:1, ts:"Sep 23, 2026"},
-      {cat:"fellowship", desc:"Deduction — forgot Ting Ting Chen's KTP position (per Ting Ting Chen)", pts:-5, ts:"Sep 24, 2026"}
+      {cat:"fellowship", desc:"Deduction — forgot Ting Ting Chen's KTP position (per Ting Ting Chen)", pts:-5, ts:"Sep 24, 2026"},
+      {cat:"fellowship", desc:"Spotted Thomas Huang near the music complex", pts:1, ts:"Sep 24, 2026"},
+      {cat:"fellowship", desc:"Spotted Andrew Chan at the Mid-Autumn Festival GM", pts:1, ts:"Sep 24, 2026"},
+      {cat:"fellowship", desc:"Spotted Angelaa Guptaa at TCC", pts:1, ts:"Sep 25, 2026"},
+      {cat:"fellowship", desc:"Spotted Cindy Chang at TCC", pts:1, ts:"Sep 25, 2026"}
+    ]},
+    "Hans Chiang": {total:1, coffee:0, brotherhood:0, fellowship:1, last:"Sep 25, 2026", streak:0, log:[
+      {cat:"fellowship", desc:"Spotted Cindy Chang at RTCC", pts:1, ts:"Sep 25, 2026"}
     ]},
     "Rich Wu": {total:-20, coffee:0, brotherhood:0, fellowship:-20, last:"Sep 24, 2026", streak:0, log:[
       {cat:"fellowship", desc:"Failed assignment — didn't complete the words-of-affirmation task (per Allison Lin)", pts:-20, ts:"Sep 24, 2026"}
