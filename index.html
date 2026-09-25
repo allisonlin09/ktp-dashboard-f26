@@ -99,6 +99,16 @@
   section.panel{display:none;padding-top:22px;}
   section.panel.active{display:block;}
 
+  .dir-snap{margin-bottom:18px;}
+  .dir-snap-head{display:flex;justify-content:space-between;align-items:center;margin-bottom:10px;}
+  .dir-snap-head h3{font-size:13.5px;color:var(--text-dim);font-weight:600;}
+  .dir-snap-head a{font-size:11.5px;}
+  .dir-snap-empty{font-size:12px;color:var(--text-faint);}
+  .dir-snap-list{display:flex;flex-direction:column;gap:6px;}
+  .dir-snap-row{display:flex;align-items:center;gap:9px;font-size:12.5px;padding:4px 0;}
+  .dir-snap-row .r{font-family:var(--font-mono);color:var(--text-faint);width:22px;}
+  .dir-snap-row .nm{flex:1;font-weight:600;}
+  .dir-snap-row .pt{font-family:var(--font-mono);color:var(--accent-2);}
   .dir-controls{display:flex;gap:10px;flex-wrap:wrap;margin-bottom:18px;align-items:center;}
   .dir-controls input[type="search"]{background:var(--surface);border:1px solid var(--border);color:var(--text);
     border-radius:var(--radius-s);padding:9px 12px;font-family:var(--font-body);font-size:13.5px;min-width:200px;flex:1;}
@@ -168,12 +178,6 @@
   .feed-card .chan{font-family:var(--font-mono);font-size:11px;color:var(--text-faint);margin-bottom:12px;}
   .feed-empty{font-size:12px;color:var(--text-faint);text-align:center;padding:18px 4px;border:1px dashed var(--border);border-radius:var(--radius-s);}
   .feed-card a.chan-link{display:inline-block;margin-top:10px;font-size:11.5px;}
-  .collage-wrap{margin-bottom:26px;}
-  .collage-empty{border:1px dashed var(--border);border-radius:var(--radius-s);padding:22px;text-align:center;font-size:12px;color:var(--text-faint);}
-  .collage-track{display:flex;gap:10px;overflow-x:auto;padding-bottom:6px;scroll-snap-type:x proximity;}
-  .collage-item{position:relative;flex:none;width:150px;height:150px;border-radius:var(--radius-m);overflow:hidden;border:1px solid var(--border);scroll-snap-align:start;background:var(--surface-2);}
-  .collage-item img{width:100%;height:100%;object-fit:cover;display:block;}
-  .collage-item .cap{position:absolute;left:0;right:0;bottom:0;padding:6px 8px;font-size:10.5px;color:#fff;background:linear-gradient(to top, rgba(0,0,0,.65), transparent);}
   .streak-flame{font-size:12px;}
   .streak-0{color:var(--text-faint);}
   .top-badge{display:inline-block;margin-left:6px;font-size:11px;}
@@ -333,6 +337,7 @@
 
   <!-- DIRECTORY -->
   <section class="panel active" id="panel-directory">
+    <div class="card dir-snap" id="dirSnap"></div>
     <div class="dir-controls">
       <input type="search" id="searchBox" placeholder="Search name, major, fun fact...">
       <div class="chip-row" id="chipRow"></div>
@@ -357,12 +362,6 @@
       <thead><tr><th>Rank</th><th>Pledge</th><th>Total</th><th>🔥 Streak</th><th>Coffee Chats</th><th>Brotherhood</th><th>Fellowship</th><th>Last Logged</th></tr></thead>
       <tbody id="lbBody"></tbody>
     </table>
-
-    <h3 style="font-size:15px;color:var(--text-dim);font-weight:600;margin:28px 0 14px;">📷 Recent Activity</h3>
-    <div class="collage-wrap">
-      <div class="collage-empty" id="collageEmpty">No photos to show yet — once coffee chat/spotted pics start hitting Slack, they'll rotate through here so everyone can see who's active.</div>
-      <div class="collage-track" id="collageTrack" style="display:none;"></div>
-    </div>
 
     <h3 style="font-size:15px;color:var(--text-dim);font-weight:600;margin:28px 0 14px;">Flagged from Slack</h3>
     <div class="feed-grid">
@@ -505,20 +504,23 @@
   // F26 pledge class, confirmed via the Pledge Buddy pairing sheet. Bio fields unknown until
   // pledges are added to the External Directory — left as "—" rather than guessed. Pledge class
   // letter (Zeta or whatever's next) is unconfirmed until Big/Little reveal, so cls stays "Pledge".
+  // Bio fields for pledges are sourced from the KTP Fall '26: Membership Form (Responses) as
+  // people submit it — birthday, USC ID, and dues-payment status from that form are intentionally
+  // left off this public page. Anyone who hasn't submitted yet stays "—" until they do.
   var PLEDGES = [
-    {name:"Jason Lee", cls:"Pledge", role:"Pledge", major:"—", hometown:"—", fact:"—", tech:"—", work:"—", industry:"—", ig:"", li:"", phone:"213-453-5537"},
-    {name:"Ryogo Otsuka", cls:"Pledge", role:"Pledge", major:"—", hometown:"—", fact:"—", tech:"—", work:"—", industry:"—", ig:"", li:"", phone:"213-245-6365"},
+    {name:"Jason Lee", cls:"Pledge", role:"Pledge", major:"Business Admin", hometown:"Arcadia, CA", fact:"Cooking, sports, fishing.", tech:"—", work:"—", industry:"Finance, Tech, Real Estate", ig:"", li:"", phone:"213-453-5537"},
+    {name:"Ryogo Otsuka", cls:"Pledge", role:"Pledge", major:"CSBA", hometown:"Tokyo, Japan", fact:"Lived in London for 4 years, can't use chopsticks properly.", tech:"—", work:"—", industry:"Tech, Software, Fintech, AI, Finance", ig:"@ryogootsuka", li:"ryogo-otsuka-b4a99b363", phone:"213-245-6365"},
     {name:"Iain Yang", cls:"Pledge", role:"Pledge", major:"—", hometown:"—", fact:"—", tech:"—", work:"—", industry:"—", ig:"", li:"", phone:"323-237-7080"},
-    {name:"Agnes Chen", cls:"Pledge", role:"Pledge", major:"—", hometown:"—", fact:"—", tech:"—", work:"—", industry:"—", ig:"", li:"", phone:"518-953-7740"},
+    {name:"Agnes Chen", cls:"Pledge", role:"Pledge", major:"Business Administration", hometown:"Shanghai, China", fact:"I sang for my high school band.", tech:"—", work:"—", industry:"Marketing, Consulting", ig:"@lovescll", li:"agnes-chen-254838312", phone:"518-953-7740"},
     {name:"Austin Chen", cls:"Pledge", role:"Pledge", major:"—", hometown:"—", fact:"—", tech:"—", work:"—", industry:"—", ig:"", li:"", phone:"650-600-8340"},
-    {name:"Chloe Hoang", cls:"Pledge", role:"Pledge", major:"—", hometown:"—", fact:"—", tech:"—", work:"—", industry:"—", ig:"", li:"", phone:"916-475-5583"},
-    {name:"Carter Lin", cls:"Pledge", role:"Pledge", major:"—", hometown:"—", fact:"—", tech:"—", work:"—", industry:"—", ig:"", li:"", phone:"949-241-1840"},
+    {name:"Chloe Hoang", cls:"Pledge", role:"Pledge", major:"CSBA", hometown:"Sacramento, CA", fact:"I played the cello for 7 years.", tech:"—", work:"—", industry:"SWE, Data, Product", ig:"@cchloehoang", li:"cchloehoang", phone:"916-475-5583"},
+    {name:"Carter Lin", cls:"Pledge", role:"Pledge", major:"Mechanical Engineering", hometown:"Irvine, CA", fact:"I've been stung by a jellyfish.", tech:"—", work:"—", industry:"Robotics, Hardware, Technology, Product Design", ig:"@_carterlin", li:"carterclin", phone:"949-241-1840"},
     {name:"Kyle Banducci", cls:"Pledge", role:"Pledge", major:"—", hometown:"—", fact:"—", tech:"—", work:"—", industry:"—", ig:"", li:"", phone:"510-424-3751"},
     {name:"Alice Zhao", cls:"Pledge", role:"Pledge", major:"—", hometown:"—", fact:"—", tech:"—", work:"—", industry:"—", ig:"", li:"", phone:"425-599-6396"},
-    {name:"Selina Xu", cls:"Pledge", role:"Pledge", major:"—", hometown:"—", fact:"—", tech:"—", work:"—", industry:"—", ig:"", li:"", phone:"213-858-1638"},
+    {name:"Selina Xu", cls:"Pledge", role:"Pledge", major:"Psychology", hometown:"China", fact:"I started dancing at age two — I don't even need to stretch to do a split.", tech:"—", work:"—", industry:"UX/UI Design & User Research, Marketing/Consumer Behavior, AI/Tech, Product Management", ig:"@sssselina_xu", li:"", phone:"213-858-1638"},
     {name:"Leilani Ybarra", cls:"Pledge", role:"Pledge", major:"—", hometown:"—", fact:"—", tech:"—", work:"—", industry:"—", ig:"", li:"", phone:"909-575-7074"},
-    {name:"Anushka Patil", cls:"Pledge", role:"Pledge", major:"—", hometown:"—", fact:"—", tech:"—", work:"—", industry:"—", ig:"", li:"", phone:"408-718-8226"},
-    {name:"Matthew Lin", cls:"Pledge", role:"Pledge", major:"—", hometown:"—", fact:"—", tech:"—", work:"—", industry:"—", ig:"", li:"", phone:"703-425-6152"},
+    {name:"Anushka Patil", cls:"Pledge", role:"Pledge", major:"CSBA", hometown:"Cupertino, CA", fact:"I used to live in NYC :)", tech:"—", work:"—", industry:"Product Management, SWE", ig:"", li:"anushka-patil-651086279", phone:"408-718-8226"},
+    {name:"Matthew Lin", cls:"Pledge", role:"Pledge", major:"Computer Science + AI Applications", hometown:"Fairfax, VA", fact:"I hate fun facts because I can never think of one.", tech:"—", work:"—", industry:"SWE, AI/ML Development, AI in Medicine", ig:"@poseidoncarrot", li:"mhlin", phone:"703-425-6152"},
     {name:"Hans Chiang", cls:"Pledge", role:"Pledge", major:"—", hometown:"—", fact:"—", tech:"—", work:"—", industry:"—", ig:"", li:"", phone:"213-301-8280"},
     {name:"Chloe Dalmacio", cls:"Pledge", role:"Pledge", major:"—", hometown:"—", fact:"—", tech:"—", work:"—", industry:"—", ig:"", li:"", phone:"657-283-9033"},
     {name:"Courtney Kijewski", cls:"Pledge", role:"Pledge", major:"—", hometown:"—", fact:"—", tech:"—", work:"—", industry:"—", ig:"", li:"", phone:"202-568-4789"},
@@ -537,10 +539,6 @@
   var TASK_WEEK = "Week 1, 9/23–9/30";
   var MEET_DECK = "https://docs.google.com/presentation/d/1K_Zb62sSfZfKtetCu2zAPwKS9pgQ-Q0kSGol0OLvgSY/preview";
   var DEADLINE = new Date("2026-12-04T23:59:00-08:00");
-
-  // COLLAGE_PHOTOS: {url, caption, date} from #coffee-chats / #spotted, most recent first,
-  // capped by the routine to keep page size sane. Empty until real photos get posted.
-  var COLLAGE_PHOTOS = [];
 
   // ---------- THEME ----------
   function setTheme(t){
@@ -629,17 +627,23 @@
     names.sort(function(a,b){ return LEDGER[b].total - LEDGER[a].total; });
     return names[0];
   }
-  function renderCollage(){
-    var empty = document.getElementById('collageEmpty'), track = document.getElementById('collageTrack');
-    if(!COLLAGE_PHOTOS.length){ empty.style.display='block'; track.style.display='none'; return; }
-    empty.style.display='none'; track.style.display='flex';
-    track.innerHTML='';
-    COLLAGE_PHOTOS.forEach(function(ph){
-      var item = document.createElement('div'); item.className='collage-item';
-      item.innerHTML = '<img src="'+ph.url+'" alt="'+(ph.caption||'')+'" loading="lazy">'+
-        (ph.caption ? '<div class="cap">'+ph.caption+'</div>' : '');
-      track.appendChild(item);
-    });
+  function renderDirSnap(){
+    var el = document.getElementById('dirSnap');
+    if(!el) return;
+    var names = Object.keys(LEDGER);
+    if(!names.length){
+      el.innerHTML = '<div class="dir-snap-head"><h3>📊 Points Snapshot</h3><span class="dir-snap-empty">nothing logged yet</span></div>'+
+        '<div class="dir-snap-empty">Once coffee chats get logged, the top standings show up here. Full breakdown lives on the Points tab.</div>';
+      return;
+    }
+    names.sort(function(a,b){ return LEDGER[b].total - LEDGER[a].total; });
+    var top5 = names.slice(0,5);
+    el.innerHTML = '<div class="dir-snap-head"><h3>📊 Points Snapshot</h3><a href="#" data-tab-link="points">Full Points tab →</a></div>'+
+      '<div class="dir-snap-list">'+top5.map(function(n,i){
+        return '<div class="dir-snap-row"><span class="r">#'+(i+1)+'</span><span class="nm">'+n+'</span><span class="pt">'+LEDGER[n].total+' pts</span></div>';
+      }).join('')+'</div>';
+    var link = el.querySelector('[data-tab-link]');
+    if(link) link.onclick = function(e){ e.preventDefault(); document.querySelector('nav.tabs button[data-tab="points"]').click(); };
   }
   function refreshStats(){
     document.getElementById('statPledges').textContent = Object.keys(LEDGER).length;
@@ -648,7 +652,7 @@
     var days = Math.max(0, Math.ceil((DEADLINE - new Date())/86400000));
     document.getElementById('statDays').textContent = days;
     document.getElementById('scanNote').textContent = 'Last scanned ' + SCAN_TIME;
-    renderRubric(); renderLeaderboard(); renderCollage();
+    renderRubric(); renderLeaderboard(); renderDirSnap();
     renderCards(); // re-render so the top-points badge stays in sync with the ledger
     renderMine();
     if(document.getElementById('pairGrid')) renderBuddies();
