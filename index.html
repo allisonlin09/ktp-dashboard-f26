@@ -380,13 +380,13 @@
       <div class="card feed-card">
         <h4>📸 Coffee chat proof</h4>
         <div class="chan">#coffee-chats-f26</div>
-        <div class="feed-empty" id="feedCoffee">No photos posted yet</div>
+        <div class="feed-empty" id="feedCoffee">Sept 25 — Iain Yang &amp; Agnes Chen posted a coffee chat with Allison Lin (bananas in hand for the "Queen Allison" task).</div>
         <a class="chan-link" href="https://kappathetapi-usc.slack.com/archives/C0C3Y8LGZ53" target="_blank" rel="noopener">Open channel ↗</a>
       </div>
       <div class="card feed-card">
         <h4>👀 Spotted</h4>
         <div class="chan">#spotted-f26</div>
-        <div class="feed-empty" id="feedSpotted">Sept 23–25 — busy few days in #spotted-f26: Matthew Lin is on a spotting streak (Alena Talreja, Tanzil Hussain, Thomas Huang, Andrew Chan, Angelaa Guptaa, Cindy Chang); Ryogo Otsuka, Jason Lee, Alice Zhao, Kyle Banducci, Carter Lin, Hans Chiang &amp; Austin Chen each spotted an e-board/active too.</div>
+        <div class="feed-empty" id="feedSpotted">Sept 23–25 — busy few days in #spotted-f26: Matthew Lin extended his spotting streak (Alena Talreja, Tanzil Hussain, Thomas Huang, Andrew Chan, Angelaa Guptaa, Cindy Chang, Allison Lin, Sophie Chuang); Ryogo Otsuka spotted Rylnn Chavez two days running; Jason Lee, Alice Zhao, Kyle Banducci, Carter Lin, Hans Chiang &amp; Austin Chen each spotted an e-board/active too.</div>
         <a class="chan-link" href="https://kappathetapi-usc.slack.com/archives/C0C1RML218A" target="_blank" rel="noopener">Open channel ↗</a>
       </div>
       <div class="card feed-card">
@@ -528,8 +528,8 @@
     {name:"Chloe Hoang", cls:"Pledge", role:"Pledge", major:"CSBA", hometown:"Sacramento, CA", fact:"I played the cello for 7 years.", tech:"—", work:"—", industry:"SWE, Data, Product", ig:"@cchloehoang", li:"cchloehoang", phone:"916-475-5583"},
     {name:"Carter Lin", cls:"Pledge", role:"Pledge", major:"Mechanical Engineering", hometown:"Irvine, CA", fact:"I've been stung by a jellyfish.", tech:"—", work:"—", industry:"Robotics, Hardware, Technology, Product Design", ig:"@_carterlin", li:"carterclin", phone:"949-241-1840"},
     {name:"Kyle Banducci", cls:"Pledge", role:"Pledge", major:"—", hometown:"—", fact:"—", tech:"—", work:"—", industry:"—", ig:"", li:"", phone:"510-424-3751"},
-    {name:"Alice Zhao", cls:"Pledge", role:"Pledge", major:"—", hometown:"—", fact:"—", tech:"—", work:"—", industry:"—", ig:"", li:"", phone:"425-599-6396"},
-    {name:"Selina Xu", cls:"Pledge", role:"Pledge", major:"Psychology", hometown:"China", fact:"I started dancing at age two — I don't even need to stretch to do a split.", tech:"—", work:"—", industry:"UX/UI Design & User Research, Marketing/Consumer Behavior, AI/Tech, Product Management", ig:"@sssselina_xu", li:"", phone:"213-858-1638"},
+    {name:"Alice Zhao", cls:"Pledge", role:"Pledge", major:"Computational Neuroscience", hometown:"Seattle, WA", fact:"—", tech:"—", work:"—", industry:"—", ig:"@a.lice007", li:"alice-zhao2", phone:"425-599-6396"},
+    {name:"Selina Xu", cls:"Pledge", role:"Pledge", major:"Psychology", hometown:"Zhejiang, China", fact:"I started dancing at age two — I don't even need to stretch to do a split.", tech:"Wechat", work:"—", industry:"UX/UI Design & User Research, Marketing/Consumer Behavior, AI/Tech, Product Management", ig:"@sssselina_xu", li:"", phone:"213-858-1638"},
     {name:"Leilani Ybarra", cls:"Pledge", role:"Pledge", major:"—", hometown:"—", fact:"—", tech:"—", work:"—", industry:"—", ig:"", li:"", phone:"909-575-7074"},
     {name:"Anushka Patil", cls:"Pledge", role:"Pledge", major:"CSBA", hometown:"Cupertino, CA", fact:"I used to live in NYC :)", tech:"—", work:"—", industry:"Product Management, SWE", ig:"", li:"anushka-patil-651086279", phone:"408-718-8226"},
     {name:"Matthew Lin", cls:"Pledge", role:"Pledge", major:"Computer Science + AI Applications", hometown:"Fairfax, VA", fact:"I hate fun facts because I can never think of one.", tech:"—", work:"—", industry:"SWE, AI/ML Development, AI in Medicine", ig:"@poseidoncarrot", li:"mhlin", phone:"703-425-6152"},
@@ -562,7 +562,7 @@
   (function(){ var saved='light'; try{ saved = localStorage.getItem('cc_theme')||'light'; }catch(e){} setTheme(saved); })();
 
   // ---------- LIVE POINT LEDGER ----------
-  var SCAN_TIME = "Sep 25, 2026";
+  var SCAN_TIME = "Sep 26, 2026";
   // LEDGER[name] = {total, coffee, brotherhood, fellowship, last, streak, log:[{cat,desc,pts,ts}]}
   // streak = consecutive weeks (through today) with at least one coffee-chat log entry.
   var LEDGER = {
@@ -570,9 +570,10 @@
       {cat:"fellowship", desc:"E-board discretionary — answered questions (per Allison Lin)", pts:1, ts:"Sep 24, 2026"},
       {cat:"fellowship", desc:"Spotted Cindy Chang", pts:1, ts:"Sep 24, 2026"}
     ]},
-    "Ryogo Otsuka": {total:2, coffee:0, brotherhood:0, fellowship:2, last:"Sep 24, 2026", streak:0, log:[
+    "Ryogo Otsuka": {total:3, coffee:0, brotherhood:0, fellowship:3, last:"Sep 25, 2026", streak:0, log:[
       {cat:"fellowship", desc:"Spotted Ting Ting Chen", pts:1, ts:"Sep 23, 2026"},
-      {cat:"fellowship", desc:"Spotted Rylnn Chavez at TCC", pts:1, ts:"Sep 24, 2026"}
+      {cat:"fellowship", desc:"Spotted Rylnn Chavez at TCC", pts:1, ts:"Sep 24, 2026"},
+      {cat:"fellowship", desc:"Spotted Rylnn Chavez again — back-to-back days", pts:1, ts:"Sep 25, 2026"}
     ]},
     "Austin Chen": {total:1, coffee:0, brotherhood:0, fellowship:1, last:"Sep 25, 2026", streak:0, log:[
       {cat:"fellowship", desc:"Spotted Angelaa Guptaa", pts:1, ts:"Sep 25, 2026"}
@@ -586,17 +587,25 @@
     "Alice Zhao": {total:1, coffee:0, brotherhood:0, fellowship:1, last:"Sep 24, 2026", streak:0, log:[
       {cat:"fellowship", desc:"Spotted Sophie Chuang at EVK", pts:1, ts:"Sep 24, 2026"}
     ]},
-    "Matthew Lin": {total:1, coffee:0, brotherhood:0, fellowship:1, last:"Sep 25, 2026", streak:0, log:[
+    "Matthew Lin": {total:3, coffee:0, brotherhood:0, fellowship:3, last:"Sep 25, 2026", streak:0, log:[
       {cat:"fellowship", desc:"Spotted Alena Talreja at HeyTea", pts:1, ts:"Sep 23, 2026"},
       {cat:"fellowship", desc:"Spotted Tanzil Hussain at HeyTea", pts:1, ts:"Sep 23, 2026"},
       {cat:"fellowship", desc:"Deduction — forgot Ting Ting Chen's KTP position (per Ting Ting Chen)", pts:-5, ts:"Sep 24, 2026"},
       {cat:"fellowship", desc:"Spotted Thomas Huang near the music complex", pts:1, ts:"Sep 24, 2026"},
       {cat:"fellowship", desc:"Spotted Andrew Chan at the Mid-Autumn Festival GM", pts:1, ts:"Sep 24, 2026"},
       {cat:"fellowship", desc:"Spotted Angelaa Guptaa at TCC", pts:1, ts:"Sep 25, 2026"},
-      {cat:"fellowship", desc:"Spotted Cindy Chang at TCC", pts:1, ts:"Sep 25, 2026"}
+      {cat:"fellowship", desc:"Spotted Cindy Chang at TCC", pts:1, ts:"Sep 25, 2026"},
+      {cat:"fellowship", desc:"Spotted Allison Lin after the gym", pts:1, ts:"Sep 25, 2026"},
+      {cat:"fellowship", desc:"Spotted Sophie Chuang at Target", pts:1, ts:"Sep 25, 2026"}
     ]},
     "Hans Chiang": {total:1, coffee:0, brotherhood:0, fellowship:1, last:"Sep 25, 2026", streak:0, log:[
       {cat:"fellowship", desc:"Spotted Cindy Chang at RTCC", pts:1, ts:"Sep 25, 2026"}
+    ]},
+    "Iain Yang": {total:5, coffee:5, brotherhood:0, fellowship:0, last:"Sep 25, 2026", streak:1, log:[
+      {cat:"coffee", desc:"Coffee chat over bananas (with Agnes Chen)", pts:5, ts:"Sep 25, 2026", with:"Allison Lin"}
+    ]},
+    "Agnes Chen": {total:5, coffee:5, brotherhood:0, fellowship:0, last:"Sep 25, 2026", streak:1, log:[
+      {cat:"coffee", desc:"Coffee chat over bananas (with Iain Yang)", pts:5, ts:"Sep 25, 2026", with:"Allison Lin"}
     ]},
     "Rich Wu": {total:-20, coffee:0, brotherhood:0, fellowship:-20, last:"Sep 24, 2026", streak:0, log:[
       {cat:"fellowship", desc:"Failed assignment — didn't complete the words-of-affirmation task (per Allison Lin)", pts:-20, ts:"Sep 24, 2026"}
@@ -605,7 +614,13 @@
 
   // COLLAGE_PHOTOS: {url, caption, date} from #coffee-chats-f26 / #spotted-f26, most recent first,
   // capped by the routine to keep page size sane. Empty until real photos get posted.
-  var COLLAGE_PHOTOS = [];
+  var COLLAGE_PHOTOS = [
+    {url:"photos/2026-09-25-spotted-rylnn-chavez.jpg", caption:"Rylnn Chavez spotted (again!) — #spotted-f26", date:"Sep 25, 2026"},
+    {url:"photos/2026-09-25-spotted-ryogo-otsuka.jpg", caption:"Ryogo Otsuka spotted at Cargar — #spotted-f26", date:"Sep 25, 2026"},
+    {url:"photos/2026-09-25-spotted-allison-lin.jpg", caption:"Allison Lin spotted after the gym — #spotted-f26", date:"Sep 25, 2026"},
+    {url:"photos/2026-09-25-coffee-chat-allison-agnes-iain.jpg", caption:"Iain Yang & Agnes Chen coffee chat with Allison Lin — #coffee-chats-f26", date:"Sep 25, 2026"},
+    {url:"photos/2026-09-25-spotted-agnes-chen.jpg", caption:"Agnes Chen spotted — #spotted-f26", date:"Sep 25, 2026"}
+  ];
 
   var RUBRIC = {
     "Involvement": [
