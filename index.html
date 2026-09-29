@@ -566,43 +566,49 @@
   // LEDGER[name] = {total, coffee, brotherhood, fellowship, last, streak, log:[{cat,desc,pts,ts}]}
   // streak = consecutive weeks (through today) with at least one coffee-chat log entry.
   var LEDGER = {
-    "Jason Lee": {total:7, coffee:5, brotherhood:0, fellowship:2, last:"Sep 28, 2026", streak:1, log:[
+    "Jason Lee": {total:12, coffee:10, brotherhood:0, fellowship:2, last:"Sep 28, 2026", streak:1, log:[
       {cat:"fellowship", desc:"E-board discretionary — answered questions (per Allison Lin)", pts:1, ts:"Sep 24, 2026"},
       {cat:"fellowship", desc:"Spotted Cindy Chang", pts:1, ts:"Sep 24, 2026"},
-      {cat:"coffee", desc:"Group coffee chat with Ryogo Otsuka (with Daniel Lee & Aaron Santos)", pts:5, ts:"Sep 28, 2026", with:"Aaron Santos"}
+      {cat:"coffee", desc:"Group coffee chat with Ryogo Otsuka (with Daniel Lee & Aaron Santos)", pts:5, ts:"Sep 28, 2026", with:"Aaron Santos"},
+      {cat:"coffee", desc:"Meeting attendance — Sep 23, 2026 chapter meeting (per Allison Lin)", pts:5, ts:"Sep 23, 2026"}
     ]},
-    "Ryogo Otsuka": {total:9, coffee:5, brotherhood:0, fellowship:4, last:"Sep 28, 2026", streak:1, log:[
+    "Ryogo Otsuka": {total:14, coffee:10, brotherhood:0, fellowship:4, last:"Sep 28, 2026", streak:1, log:[
       {cat:"fellowship", desc:"Spotted Ting Ting Chen", pts:1, ts:"Sep 23, 2026"},
       {cat:"fellowship", desc:"Spotted Rylnn Chavez at TCC", pts:1, ts:"Sep 24, 2026"},
       {cat:"fellowship", desc:"Spotted Rylnn Chavez again — back-to-back days", pts:1, ts:"Sep 25, 2026"},
       {cat:"coffee", desc:"Group coffee chat with Jason Lee (with Daniel Lee & Aaron Santos)", pts:5, ts:"Sep 28, 2026", with:"Aaron Santos"},
-      {cat:"fellowship", desc:"Spotted Allison Lin", pts:1, ts:"Sep 28, 2026"}
+      {cat:"fellowship", desc:"Spotted Allison Lin", pts:1, ts:"Sep 28, 2026"},
+      {cat:"coffee", desc:"Meeting attendance — Sep 23, 2026 chapter meeting (per Allison Lin)", pts:5, ts:"Sep 23, 2026"}
     ]},
-    "Austin Chen": {total:-4, coffee:0, brotherhood:0, fellowship:-4, last:"Sep 27, 2026", streak:0, log:[
+    "Austin Chen": {total:1, coffee:5, brotherhood:0, fellowship:-4, last:"Sep 27, 2026", streak:0, log:[
       {cat:"fellowship", desc:"Spotted Angelaa Guptaa", pts:1, ts:"Sep 25, 2026"},
-      {cat:"fellowship", desc:"Deduction — didn't fill out project preference form on time (per Alena Talreja)", pts:-5, ts:"Sep 27, 2026"}
+      {cat:"fellowship", desc:"Deduction — didn't fill out project preference form on time (per Alena Talreja)", pts:-5, ts:"Sep 27, 2026"},
+      {cat:"coffee", desc:"Meeting attendance — Sep 23, 2026 chapter meeting (per Allison Lin)", pts:5, ts:"Sep 23, 2026"}
     ]},
-    "Carter Lin": {total:7, coffee:5, brotherhood:0, fellowship:2, last:"Sep 28, 2026", streak:1, log:[
+    "Carter Lin": {total:12, coffee:10, brotherhood:0, fellowship:2, last:"Sep 28, 2026", streak:1, log:[
       {cat:"fellowship", desc:"Spotted Aaron Santos", pts:1, ts:"Sep 25, 2026"},
       {cat:"fellowship", desc:"Spotted Daniel Lee", pts:1, ts:"Sep 27, 2026"},
-      {cat:"coffee", desc:"Coffee chat with Kyle Banducci (with Rylnn Chavez)", pts:5, ts:"Sep 28, 2026", with:"Rylnn Chavez"}
+      {cat:"coffee", desc:"Coffee chat with Kyle Banducci (with Rylnn Chavez)", pts:5, ts:"Sep 28, 2026", with:"Rylnn Chavez"},
+      {cat:"coffee", desc:"Meeting attendance — Sep 23, 2026 chapter meeting (per Allison Lin)", pts:5, ts:"Sep 23, 2026"}
     ]},
-    "Kyle Banducci": {total:7, coffee:5, brotherhood:0, fellowship:2, last:"Sep 28, 2026", streak:1, log:[
+    "Kyle Banducci": {total:12, coffee:10, brotherhood:0, fellowship:2, last:"Sep 28, 2026", streak:1, log:[
       {cat:"fellowship", desc:"Spotted Allison Lin", pts:1, ts:"Sep 24, 2026"},
       {cat:"fellowship", desc:"Deduction — didn't fill out project preference form on time (per Alena Talreja)", pts:-5, ts:"Sep 27, 2026"},
       {cat:"fellowship", desc:"E-board discretionary — knew who \"smokedope2016\" is (per Rylnn Chavez)", pts:2, ts:"Sep 28, 2026"},
       {cat:"fellowship", desc:"E-board discretionary — got it right (per Rylnn Chavez)", pts:5, ts:"Sep 28, 2026"},
       {cat:"fellowship", desc:"Deduction — thought Rylnn Chavez was from Florida (per Rylnn Chavez)", pts:-2, ts:"Sep 28, 2026"},
       {cat:"fellowship", desc:"Spotted Aaron Santos", pts:1, ts:"Sep 28, 2026"},
-      {cat:"coffee", desc:"Coffee chat with Carter Lin (with Rylnn Chavez)", pts:5, ts:"Sep 28, 2026", with:"Rylnn Chavez"}
+      {cat:"coffee", desc:"Coffee chat with Carter Lin (with Rylnn Chavez)", pts:5, ts:"Sep 28, 2026", with:"Rylnn Chavez"},
+      {cat:"coffee", desc:"Meeting attendance — Sep 23, 2026 chapter meeting (per Allison Lin)", pts:5, ts:"Sep 23, 2026"}
     ]},
-    "Alice Zhao": {total:9, coffee:5, brotherhood:0, fellowship:4, last:"Sep 27, 2026", streak:1, log:[
+    "Alice Zhao": {total:14, coffee:10, brotherhood:0, fellowship:4, last:"Sep 27, 2026", streak:1, log:[
       {cat:"fellowship", desc:"Spotted Sophie Chuang at EVK", pts:1, ts:"Sep 24, 2026"},
       {cat:"fellowship", desc:"Filled out dues form (per Ashima Gupta)", pts:2, ts:"Sep 26, 2026"},
       {cat:"fellowship", desc:"Spotted Angelaa Guptaa", pts:1, ts:"Sep 26, 2026"},
-      {cat:"coffee", desc:"Group coffee chat with Selina Xu (with Nick Stitle)", pts:5, ts:"Sep 27, 2026", with:"Nick Stitle"}
+      {cat:"coffee", desc:"Group coffee chat with Selina Xu (with Nick Stitle)", pts:5, ts:"Sep 27, 2026", with:"Nick Stitle"},
+      {cat:"coffee", desc:"Meeting attendance — Sep 23, 2026 chapter meeting (per Allison Lin)", pts:5, ts:"Sep 23, 2026"}
     ]},
-    "Matthew Lin": {total:10, coffee:0, brotherhood:0, fellowship:10, last:"Sep 26, 2026", streak:0, log:[
+    "Matthew Lin": {total:15, coffee:5, brotherhood:0, fellowship:10, last:"Sep 26, 2026", streak:0, log:[
       {cat:"fellowship", desc:"Spotted Alena Talreja at HeyTea", pts:1, ts:"Sep 23, 2026"},
       {cat:"fellowship", desc:"Spotted Tanzil Hussain at HeyTea", pts:1, ts:"Sep 23, 2026"},
       {cat:"fellowship", desc:"Deduction — forgot Ting Ting Chen's KTP position (per Ting Ting Chen)", pts:-5, ts:"Sep 24, 2026"},
@@ -617,49 +623,65 @@
       {cat:"fellowship", desc:"Spotted Rylnn Chavez at Tao", pts:1, ts:"Sep 26, 2026"},
       {cat:"fellowship", desc:"Spotted Cindy Chang", pts:1, ts:"Sep 26, 2026"},
       {cat:"fellowship", desc:"Spotted Daniel Lee at YGF", pts:1, ts:"Sep 26, 2026"},
-      {cat:"fellowship", desc:"Spotted Angelaa Guptaa at White Lies", pts:1, ts:"Sep 26, 2026"}
+      {cat:"fellowship", desc:"Spotted Angelaa Guptaa at White Lies", pts:1, ts:"Sep 26, 2026"},
+      {cat:"coffee", desc:"Meeting attendance — Sep 23, 2026 chapter meeting (per Allison Lin)", pts:5, ts:"Sep 23, 2026"}
     ]},
-    "Hans Chiang": {total:10, coffee:0, brotherhood:0, fellowship:10, last:"Sep 27, 2026", streak:0, log:[
+    "Hans Chiang": {total:15, coffee:5, brotherhood:0, fellowship:10, last:"Sep 27, 2026", streak:0, log:[
       {cat:"fellowship", desc:"Spotted Cindy Chang at RTCC", pts:1, ts:"Sep 25, 2026"},
       {cat:"fellowship", desc:"E-board discretionary — got Aaron Santos a shot at AKPsi x Tao (per Aaron Santos)", pts:5, ts:"Sep 25, 2026"},
       {cat:"fellowship", desc:"E-board discretionary (per Rylnn Chavez)", pts:2, ts:"Sep 26, 2026"},
-      {cat:"fellowship", desc:"First pledge to wish Aaron Santos happy birthday", pts:2, ts:"Sep 27, 2026"}
+      {cat:"fellowship", desc:"First pledge to wish Aaron Santos happy birthday", pts:2, ts:"Sep 27, 2026"},
+      {cat:"coffee", desc:"Meeting attendance — Sep 23, 2026 chapter meeting (per Allison Lin)", pts:5, ts:"Sep 23, 2026"}
     ]},
-    "Iain Yang": {total:5, coffee:5, brotherhood:0, fellowship:0, last:"Sep 25, 2026", streak:1, log:[
-      {cat:"coffee", desc:"Coffee chat over bananas (with Agnes Chen)", pts:5, ts:"Sep 25, 2026", with:"Allison Lin"}
+    "Iain Yang": {total:10, coffee:10, brotherhood:0, fellowship:0, last:"Sep 25, 2026", streak:1, log:[
+      {cat:"coffee", desc:"Coffee chat over bananas (with Agnes Chen)", pts:5, ts:"Sep 25, 2026", with:"Allison Lin"},
+      {cat:"coffee", desc:"Meeting attendance — Sep 23, 2026 chapter meeting (per Allison Lin)", pts:5, ts:"Sep 23, 2026"}
     ]},
-    "Agnes Chen": {total:18, coffee:10, brotherhood:0, fellowship:8, last:"Sep 28, 2026", streak:1, log:[
+    "Agnes Chen": {total:23, coffee:15, brotherhood:0, fellowship:8, last:"Sep 28, 2026", streak:1, log:[
       {cat:"coffee", desc:"Coffee chat over bananas (with Iain Yang)", pts:5, ts:"Sep 25, 2026", with:"Allison Lin"},
       {cat:"fellowship", desc:"Spotted Angelaa Guptaa", pts:1, ts:"Sep 28, 2026"},
       {cat:"fellowship", desc:"E-board discretionary — helped with STARS report project (per Tanzil Hussain)", pts:7, ts:"Sep 28, 2026"},
-      {cat:"coffee", desc:"Coffee chat with Ashima Gupta", pts:5, ts:"Sep 28, 2026", with:"Ashima Gupta"}
+      {cat:"coffee", desc:"Coffee chat with Ashima Gupta", pts:5, ts:"Sep 28, 2026", with:"Ashima Gupta"},
+      {cat:"coffee", desc:"Meeting attendance — Sep 23, 2026 chapter meeting (per Allison Lin)", pts:5, ts:"Sep 23, 2026"}
     ]},
-    "Rich Wu": {total:-25, coffee:0, brotherhood:0, fellowship:-25, last:"Sep 27, 2026", streak:0, log:[
+    "Rich Wu": {total:-20, coffee:5, brotherhood:0, fellowship:-25, last:"Sep 27, 2026", streak:0, log:[
       {cat:"fellowship", desc:"Failed assignment — didn't complete the words-of-affirmation task (per Allison Lin)", pts:-20, ts:"Sep 24, 2026"},
-      {cat:"fellowship", desc:"Deduction — didn't fill out project preference form on time (per Alena Talreja)", pts:-5, ts:"Sep 27, 2026"}
+      {cat:"fellowship", desc:"Deduction — didn't fill out project preference form on time (per Alena Talreja)", pts:-5, ts:"Sep 27, 2026"},
+      {cat:"coffee", desc:"Meeting attendance — Sep 23, 2026 chapter meeting (per Allison Lin)", pts:5, ts:"Sep 23, 2026"}
     ]},
-    "Chloe Hoang": {total:6, coffee:0, brotherhood:0, fellowship:6, last:"Sep 26, 2026", streak:0, log:[
+    "Chloe Hoang": {total:11, coffee:5, brotherhood:0, fellowship:6, last:"Sep 26, 2026", streak:0, log:[
       {cat:"fellowship", desc:"Filled out dues form (per Ashima Gupta)", pts:2, ts:"Sep 26, 2026"},
       {cat:"fellowship", desc:"Spotted Nicole Amer", pts:1, ts:"Sep 26, 2026"},
       {cat:"fellowship", desc:"Spotted Allison Lin", pts:1, ts:"Sep 26, 2026"},
       {cat:"fellowship", desc:"Spotted Sophie Chuang", pts:1, ts:"Sep 26, 2026"},
-      {cat:"fellowship", desc:"Spotted Alena Talreja", pts:1, ts:"Sep 26, 2026"}
+      {cat:"fellowship", desc:"Spotted Alena Talreja", pts:1, ts:"Sep 26, 2026"},
+      {cat:"coffee", desc:"Meeting attendance — Sep 23, 2026 chapter meeting (per Allison Lin)", pts:5, ts:"Sep 23, 2026"}
     ]},
-    "Selina Xu": {total:15, coffee:5, brotherhood:0, fellowship:10, last:"Sep 28, 2026", streak:1, log:[
+    "Selina Xu": {total:20, coffee:10, brotherhood:0, fellowship:10, last:"Sep 28, 2026", streak:1, log:[
       {cat:"fellowship", desc:"Filled out dues form (per Ashima Gupta)", pts:2, ts:"Sep 26, 2026"},
       {cat:"fellowship", desc:"Spotted Alena Talreja at the football game", pts:1, ts:"Sep 26, 2026"},
       {cat:"coffee", desc:"Group coffee chat with Alice Zhao (with Nick Stitle)", pts:5, ts:"Sep 27, 2026", with:"Nick Stitle"},
-      {cat:"fellowship", desc:"E-board discretionary — helped with STARS report project (per Tanzil Hussain)", pts:7, ts:"Sep 28, 2026"}
+      {cat:"fellowship", desc:"E-board discretionary — helped with STARS report project (per Tanzil Hussain)", pts:7, ts:"Sep 28, 2026"},
+      {cat:"coffee", desc:"Meeting attendance — Sep 23, 2026 chapter meeting (per Allison Lin)", pts:5, ts:"Sep 23, 2026"}
     ]},
-    "Leilani Ybarra": {total:7, coffee:0, brotherhood:0, fellowship:7, last:"Sep 28, 2026", streak:0, log:[
-      {cat:"fellowship", desc:"E-board discretionary — helped with STARS report project (per Tanzil Hussain)", pts:7, ts:"Sep 28, 2026"}
+    "Leilani Ybarra": {total:12, coffee:5, brotherhood:0, fellowship:7, last:"Sep 28, 2026", streak:0, log:[
+      {cat:"fellowship", desc:"E-board discretionary — helped with STARS report project (per Tanzil Hussain)", pts:7, ts:"Sep 28, 2026"},
+      {cat:"coffee", desc:"Meeting attendance — Sep 23, 2026 chapter meeting (per Allison Lin)", pts:5, ts:"Sep 23, 2026"}
     ]},
-    "Chloe Dalmacio": {total:10, coffee:10, brotherhood:0, fellowship:0, last:"Sep 28, 2026", streak:1, log:[
+    "Chloe Dalmacio": {total:15, coffee:15, brotherhood:0, fellowship:0, last:"Sep 28, 2026", streak:1, log:[
       {cat:"coffee", desc:"Coffee chat with Sophie Chuang", pts:5, ts:"Sep 28, 2026", with:"Sophie Chuang"},
-      {cat:"coffee", desc:"Coffee chat with Britney Doan", pts:5, ts:"Sep 28, 2026", with:"Britney Doan"}
+      {cat:"coffee", desc:"Coffee chat with Britney Doan", pts:5, ts:"Sep 28, 2026", with:"Britney Doan"},
+      {cat:"coffee", desc:"Meeting attendance — Sep 23, 2026 chapter meeting (per Allison Lin)", pts:5, ts:"Sep 23, 2026"}
     ]},
-    "Courtney Kijewski": {total:1, coffee:0, brotherhood:0, fellowship:1, last:"Sep 27, 2026", streak:0, log:[
-      {cat:"fellowship", desc:"Spotted Sophie Chuang", pts:1, ts:"Sep 27, 2026"}
+    "Courtney Kijewski": {total:6, coffee:5, brotherhood:0, fellowship:1, last:"Sep 27, 2026", streak:0, log:[
+      {cat:"fellowship", desc:"Spotted Sophie Chuang", pts:1, ts:"Sep 27, 2026"},
+      {cat:"coffee", desc:"Meeting attendance — Sep 23, 2026 chapter meeting (per Allison Lin)", pts:5, ts:"Sep 23, 2026"}
+    ]},
+    "Anushka Patil": {total:5, coffee:5, brotherhood:0, fellowship:0, last:"Sep 23, 2026", streak:0, log:[
+      {cat:"coffee", desc:"Meeting attendance — Sep 23, 2026 chapter meeting (per Allison Lin)", pts:5, ts:"Sep 23, 2026"}
+    ]},
+    "Yuki Watanabe": {total:5, coffee:5, brotherhood:0, fellowship:0, last:"Sep 23, 2026", streak:0, log:[
+      {cat:"coffee", desc:"Meeting attendance — Sep 23, 2026 chapter meeting (per Allison Lin)", pts:5, ts:"Sep 23, 2026"}
     ]}
   };
 
