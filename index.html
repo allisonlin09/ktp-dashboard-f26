@@ -358,18 +358,7 @@
       <h3 style="font-size:15px;color:var(--text-dim);font-weight:600;">Live point ledger, sourced from Slack</h3>
       <span class="scan-note" id="scanNote"></span>
     </div>
-    <div class="rubric" id="rubricGrid"></div>
-
-    <div class="lb-empty" id="lbEmpty">
-      <h3>No points logged yet</h3>
-      <p>This scans <span class="mono">#points</span>, <span class="mono">#coffee-chats</span>, <span class="mono">#spotted</span>, <span class="mono">#f26-pledge-announcements</span> and <span class="mono">#pledge-announcements</span> for point awards, proof photos, and announcements. Right now those channels only have e-board join events — <b>no pledges have been added yet</b> and nothing's been posted. This table fills in automatically once that starts.</p>
-    </div>
-    <table class="buddy-table" id="lbTable" style="display:none;">
-      <thead><tr><th>Rank</th><th>Pledge</th><th>Total</th><th>🔥 Streak</th><th>Coffee Chats</th><th>Brotherhood</th><th>Fellowship</th><th>Last Logged</th></tr></thead>
-      <tbody id="lbBody"></tbody>
-    </table>
-
-    <h3 style="font-size:15px;color:var(--text-dim);font-weight:600;margin:28px 0 14px;">📷 Recent Activity</h3>
+    <h3 style="font-size:15px;color:var(--text-dim);font-weight:600;margin:0 0 14px;">📷 Recent Activity</h3>
     <div class="collage-wrap">
       <div class="collage-empty" id="collageEmpty">No photos to show yet — once coffee chat/spotted pics start hitting Slack, they'll rotate through here so everyone can see who's active.</div>
       <div class="collage-track" id="collageTrack" style="display:none;"></div>
@@ -396,6 +385,19 @@
         <a class="chan-link" href="https://kappathetapi-usc.slack.com/archives/C0C456PA1QR" target="_blank" rel="noopener">Open #points-f26 ↗</a>
       </div>
     </div>
+
+    <h3 style="font-size:15px;color:var(--text-dim);font-weight:600;margin:28px 0 14px;">🏆 Leaderboard</h3>
+    <div class="lb-empty" id="lbEmpty">
+      <h3>No points logged yet</h3>
+      <p>This scans <span class="mono">#points</span>, <span class="mono">#coffee-chats</span>, <span class="mono">#spotted</span>, <span class="mono">#f26-pledge-announcements</span> and <span class="mono">#pledge-announcements</span> for point awards, proof photos, and announcements. Right now those channels only have e-board join events — <b>no pledges have been added yet</b> and nothing's been posted. This table fills in automatically once that starts.</p>
+    </div>
+    <table class="buddy-table" id="lbTable" style="display:none;">
+      <thead><tr><th>Rank</th><th>Pledge</th><th>Total</th><th>🔥 Streak</th><th>Coffee Chats</th><th>Brotherhood</th><th>Fellowship</th><th>Last Logged</th></tr></thead>
+      <tbody id="lbBody"></tbody>
+    </table>
+
+    <h3 style="font-size:15px;color:var(--text-dim);font-weight:600;margin:28px 0 14px;">📋 Points Rubric &amp; Details</h3>
+    <div class="rubric" id="rubricGrid"></div>
   </section>
 
   <!-- FAMILY TREE -->
