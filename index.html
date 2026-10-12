@@ -336,8 +336,6 @@
       <h3 class="mine-h">🎯 Recommended for you</h3>
       <p class="mine-sub">Matched on major, interests, and background you shared below — not a guarantee, just a nudge on who to hit up next.</p>
       <div class="match-grid" id="mineMatches"></div>
-      <h3 class="mine-h">📊 Full points breakdown</h3>
-      <div class="rubric" id="mineBreakdown"></div>
     </div>
   </section>
 
@@ -392,7 +390,7 @@
       <p>This scans <span class="mono">#points</span>, <span class="mono">#coffee-chats</span>, <span class="mono">#spotted</span>, <span class="mono">#f26-pledge-announcements</span> and <span class="mono">#pledge-announcements</span> for point awards, proof photos, and announcements. Right now those channels only have e-board join events — <b>no pledges have been added yet</b> and nothing's been posted. This table fills in automatically once that starts.</p>
     </div>
     <table class="buddy-table" id="lbTable" style="display:none;">
-      <thead><tr><th>Rank</th><th>Pledge</th><th>Total</th><th>🔥 Streak</th><th>Coffee Chats</th><th>Brotherhood</th><th>Fellowship</th><th>Last Logged</th></tr></thead>
+      <thead><tr><th>Rank</th><th>Pledge</th><th>Total</th><th>🔥 Streak</th><th>Coffee Chats Left</th><th>Last Logged</th></tr></thead>
       <tbody id="lbBody"></tbody>
     </table>
 
@@ -549,6 +547,17 @@
   var byName = {}; ALL.forEach(function(p){ byName[p.name]=p; });
 
   var TASK_WEEK = "Week 3";
+  var REQUIRED_COFFEE_CHATS = EBOARD.length;
+  function coffeeChatsRemaining(name){
+    var r = LEDGER[name];
+    if(!r) return REQUIRED_COFFEE_CHATS;
+    var ebNames = {}; EBOARD.forEach(function(p){ ebNames[p.name]=true; });
+    var chatted = {};
+    (r.log||[]).forEach(function(e){
+      if(e.cat==='coffee' && e.with && ebNames[e.with]) chatted[e.with]=true;
+    });
+    return Math.max(0, REQUIRED_COFFEE_CHATS - Object.keys(chatted).length);
+  }
   var MEET_DECK = "https://docs.google.com/presentation/d/1K_Zb62sSfZfKtetCu2zAPwKS9pgQ-Q0kSGol0OLvgSY/preview";
   var DEADLINE = new Date("2026-12-04T23:59:00-08:00");
 
@@ -566,20 +575,22 @@
   // LEDGER[name] = {total, coffee, brotherhood, fellowship, last, streak, log:[{cat,desc,pts,ts}]}
   // streak = consecutive weeks (through today) with at least one coffee-chat log entry.
   var LEDGER = {
-    "Jason Lee": {total:24, coffee:15, brotherhood:0, fellowship:9, last:"Oct 6, 2026", streak:0, log:[
+    "Jason Lee": {total:29, coffee:20, brotherhood:0, fellowship:9, last:"Oct 6, 2026", streak:0, log:[
       {cat:"fellowship", desc:"E-board discretionary — answered questions (per Allison Lin)", pts:1, ts:"Sep 24, 2026"},
       {cat:"fellowship", desc:"Spotted Cindy Chang", pts:1, ts:"Sep 24, 2026"},
       {cat:"coffee", desc:"Group coffee chat with Ryogo Otsuka (with Daniel Lee & Aaron Santos)", pts:5, ts:"Sep 28, 2026", with:"Aaron Santos"},
+      {cat:"coffee", desc:"Group coffee chat with Ryogo Otsuka (with Daniel Lee & Aaron Santos)", pts:5, ts:"Sep 28, 2026", with:"Daniel Lee"},
       {cat:"coffee", desc:"Meeting attendance — Sep 23, 2026 chapter meeting (per Allison Lin)", pts:5, ts:"Sep 23, 2026"},
       {cat:"fellowship", desc:"Liked and commented on IG reel (per Britney Doan)", pts:2, ts:"Sep 30, 2026"},
       {cat:"fellowship", desc:"Asked a question to the guest speaker (per Allison Lin)", pts:5, ts:"Sep 30, 2026"},
       {cat:"coffee", desc:"Group coffee chat with Kyle Banducci (with Alena Talreja)", pts:5, ts:"Oct 6, 2026", with:"Alena Talreja"}
     ]},
-    "Ryogo Otsuka": {total:23, coffee:10, brotherhood:0, fellowship:13, last:"Oct 7, 2026", streak:0, log:[
+    "Ryogo Otsuka": {total:28, coffee:15, brotherhood:0, fellowship:13, last:"Oct 7, 2026", streak:0, log:[
       {cat:"fellowship", desc:"Spotted Ting Ting Chen", pts:1, ts:"Sep 23, 2026"},
       {cat:"fellowship", desc:"Spotted Rylnn Chavez at TCC", pts:1, ts:"Sep 24, 2026"},
       {cat:"fellowship", desc:"Spotted Rylnn Chavez again — back-to-back days", pts:1, ts:"Sep 25, 2026"},
       {cat:"coffee", desc:"Group coffee chat with Jason Lee (with Daniel Lee & Aaron Santos)", pts:5, ts:"Sep 28, 2026", with:"Aaron Santos"},
+      {cat:"coffee", desc:"Group coffee chat with Jason Lee (with Daniel Lee & Aaron Santos)", pts:5, ts:"Sep 28, 2026", with:"Daniel Lee"},
       {cat:"fellowship", desc:"Spotted Allison Lin", pts:1, ts:"Sep 28, 2026"},
       {cat:"coffee", desc:"Meeting attendance — Sep 23, 2026 chapter meeting (per Allison Lin)", pts:5, ts:"Sep 23, 2026"},
       {cat:"fellowship", desc:"Carried stuff to Cici He & Britney Doan's apartment (per Britney Doan)", pts:8, ts:"Oct 4, 2026"},
@@ -746,26 +757,29 @@
       {cat:"fellowship", desc:"Spotted Cici He at the village", pts:1, ts:"Oct 7, 2026"},
       {cat:"fellowship", desc:"Spotted Simra Zargar at the village (per Britney Doan)", pts:1, ts:"Oct 7, 2026"}
     ]},
-    "Courtney Kijewski": {total:40, coffee:17, brotherhood:0, fellowship:23, last:"Oct 6, 2026", streak:0, log:[
+    "Courtney Kijewski": {total:45, coffee:22, brotherhood:0, fellowship:23, last:"Oct 6, 2026", streak:0, log:[
       {cat:"fellowship", desc:"Spotted Sophie Chuang", pts:1, ts:"Sep 27, 2026"},
       {cat:"coffee", desc:"Meeting attendance — Sep 23, 2026 chapter meeting (per Allison Lin)", pts:5, ts:"Sep 23, 2026"},
       {cat:"fellowship", desc:"E-board discretionary — helped with STARS report project (per Tanzil Hussain)", pts:7, ts:"Sep 28, 2026"},
       {cat:"fellowship", desc:"Liked and commented on IG reel (per Britney Doan)", pts:2, ts:"Sep 29, 2026"},
       {cat:"fellowship", desc:"Asked a question to the guest speaker (per Allison Lin)", pts:5, ts:"Sep 30, 2026"},
       {cat:"coffee", desc:"Group coffee chat with Yukitaka Watanabe (with Cici He & Angelaa Guptaa)", pts:5, ts:"Oct 1, 2026", with:"Angelaa Guptaa"},
+      {cat:"coffee", desc:"Group coffee chat with Yukitaka Watanabe (with Cici He & Angelaa Guptaa)", pts:5, ts:"Oct 1, 2026", with:"Cici He"},
       {cat:"fellowship", desc:"Wore the In-N-Out hat from their meal all the way back to campus (per Ting Ting Chen)", pts:4, ts:"Oct 4, 2026"},
       {cat:"fellowship", desc:"Jumped in the water with Yukitaka Watanabe & Matthew Lin (per Alena Talreja)", pts:3, ts:"Oct 5, 2026"},
       {cat:"coffee", desc:"Active coffee chat with Nikki Sanglimsuwan", pts:7, ts:"Oct 6, 2026", with:"Nikki Sanglimsuwan"},
       {cat:"fellowship", desc:"Spotted Ting Ting Chen", pts:1, ts:"Oct 6, 2026"}
     ]},
-    "Anushka Patil": {total:10, coffee:10, brotherhood:0, fellowship:0, last:"Oct 6, 2026", streak:0, log:[
+    "Anushka Patil": {total:15, coffee:15, brotherhood:0, fellowship:0, last:"Oct 6, 2026", streak:0, log:[
       {cat:"coffee", desc:"Meeting attendance — Sep 23, 2026 chapter meeting (per Allison Lin)", pts:5, ts:"Sep 23, 2026"},
-      {cat:"coffee", desc:"Group coffee chat with Aaron Santos (with Sophie Chuang)", pts:5, ts:"Oct 6, 2026", with:"Sophie Chuang"}
+      {cat:"coffee", desc:"Group coffee chat with Aaron Santos (with Sophie Chuang)", pts:5, ts:"Oct 6, 2026", with:"Sophie Chuang"},
+      {cat:"coffee", desc:"Group coffee chat with Aaron Santos (with Sophie Chuang)", pts:5, ts:"Oct 6, 2026", with:"Aaron Santos"}
     ]},
-    "Yuki Watanabe": {total:39, coffee:15, brotherhood:0, fellowship:24, last:"Oct 6, 2026", streak:0, log:[
+    "Yuki Watanabe": {total:44, coffee:20, brotherhood:0, fellowship:24, last:"Oct 6, 2026", streak:0, log:[
       {cat:"coffee", desc:"Meeting attendance — Sep 23, 2026 chapter meeting (per Allison Lin)", pts:5, ts:"Sep 23, 2026"},
       {cat:"fellowship", desc:"Spotted Aaron Santos in front of Bruxie", pts:1, ts:"Sep 30, 2026"},
       {cat:"coffee", desc:"Group coffee chat with Courtney Kijewski (with Cici He & Angelaa Guptaa)", pts:5, ts:"Oct 1, 2026", with:"Angelaa Guptaa"},
+      {cat:"coffee", desc:"Group coffee chat with Courtney Kijewski (with Cici He & Angelaa Guptaa)", pts:5, ts:"Oct 1, 2026", with:"Cici He"},
       {cat:"fellowship", desc:"Helped find parking at Culver City + first pledges to arrive at the firepit (per Ting Ting Chen)", pts:7, ts:"Oct 4, 2026"},
       {cat:"fellowship", desc:"Brought wood starters to the fire pit (per Ting Ting Chen)", pts:3, ts:"Oct 4, 2026"},
       {cat:"fellowship", desc:"Carried stuff to Cici He & Britney Doan's apartment (per Britney Doan)", pts:8, ts:"Oct 4, 2026"},
@@ -836,11 +850,12 @@
     names.forEach(function(n,i){
       var r = LEDGER[n];
       var streak = r.streak||0;
+      var left = coffeeChatsRemaining(n);
       var tr = document.createElement('tr');
       tr.innerHTML = '<td class="rank">#'+(i+1)+(i===0?' <span class="top-badge" title="Most points">🏆</span>':'')+'</td>'+
         '<td>'+n+'</td><td class="rank">'+r.total+'</td>'+
         '<td class="'+(streak>0?'streak-flame':'streak-0')+'">'+(streak>0 ? '🔥×'+streak : '—')+'</td>'+
-        '<td>'+(r.coffee||0)+'</td><td>'+(r.brotherhood||0)+'</td><td>'+(r.fellowship||0)+'</td><td>'+(r.last||'—')+'</td>';
+        '<td>'+(left>0 ? left : '✅ all done') +'</td><td>'+(r.last||'—')+'</td>';
       body.appendChild(tr);
     });
   }
@@ -982,21 +997,6 @@
     }
 
     renderMatches(me, needTargets);
-
-    var bd = document.getElementById('mineBreakdown'); bd.innerHTML='';
-    [["Involvement","coffee",r.coffee||0],["Brotherhood","brotherhood",r.brotherhood||0],["Fellowship & Deductions","fellowship",r.fellowship||0]].forEach(function(row){
-      var cd = document.createElement('div'); cd.className='card';
-      cd.innerHTML = '<h4 style="font-size:12px;text-transform:uppercase;letter-spacing:.06em;color:var(--text-faint);margin-bottom:10px;">'+row[0]+'</h4>'+
-        '<div class="rline"><span>Points from this category</span><b>'+row[2]+'</b></div>'+
-        '<div class="rline"><span>Entries logged</span><b>'+log.filter(function(l){return l.cat===row[1];}).length+'</b></div>';
-      bd.appendChild(cd);
-    });
-    if(log.length){
-      var full = document.createElement('div'); full.className='card';
-      full.innerHTML = '<h4 style="font-size:12px;text-transform:uppercase;letter-spacing:.06em;color:var(--text-faint);margin-bottom:10px;">Full log</h4>'+
-        log.slice().reverse().map(function(l){ return '<div class="rline"><span>'+(l.desc||l.cat)+(l.with?' — '+l.with:'')+'</span><b>'+(l.pts>=0?'+':'')+l.pts+'</b></div>'; }).join('');
-      bd.appendChild(full);
-    }
   }
 
   // Fields we compare against, and the plain-English label for where a shared word came from.
