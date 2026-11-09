@@ -535,11 +535,11 @@
   (function(){ var saved='light'; try{ saved = localStorage.getItem('cc_theme')||'light'; }catch(e){} setTheme(saved); })();
 
   // ---------- LIVE POINT LEDGER ----------
-  var SCAN_TIME = "Nov 7, 2026";
+  var SCAN_TIME = "Nov 9, 2026";
   // LEDGER[name] = {total, coffee, brotherhood, fellowship, last, streak, log:[{cat,desc,pts,ts}]}
   // streak = consecutive weeks (through today) with at least one coffee-chat log entry.
   var LEDGER = {
-    "Matthew Lin": {total:128, coffee:62, brotherhood:33, fellowship:33, last:"Nov 5, 2026", streak:7, log:[
+    "Matthew Lin": {total:148, coffee:62, brotherhood:33, fellowship:53, last:"Nov 7, 2026", streak:0, log:[
       {cat:"coffee", desc:"Chapter meeting attendance (09-23)", pts:5, ts:"Sep 23, 2026"},
       {cat:"fellowship", desc:"spotted Alena Talreja", pts:1, ts:"Sep 23, 2026"},
       {cat:"fellowship", desc:"spotted Tanzil Hussain", pts:1, ts:"Sep 23, 2026"},
@@ -679,9 +679,10 @@
       {cat:"fellowship", desc:"gave Britney motivational words for HW", pts:3, ts:"Nov 4, 2026"},
       {cat:"fellowship", desc:"engaged with Cici's reel", pts:3, ts:"Nov 4, 2026"},
       {cat:"fellowship", desc:"Election Day (voted)", pts:3, ts:"Nov 4, 2026"},
-      {cat:"fellowship", desc:"\"been mean to u\" (Britney)", pts:1, ts:"Nov 5, 2026"}
+      {cat:"fellowship", desc:"\"been mean to u\" (Britney)", pts:1, ts:"Nov 5, 2026"},
+      {cat:"fellowship", desc:"Qualtrics survey for Britney's class", pts:20, ts:"Nov 7, 2026"}
     ]},
-    "Agnes Chen": {total:152, coffee:75, brotherhood:36, fellowship:41, last:"Nov 6, 2026", streak:1, log:[
+    "Agnes Chen": {total:152, coffee:75, brotherhood:36, fellowship:41, last:"Nov 6, 2026", streak:0, log:[
       {cat:"coffee", desc:"Chapter meeting absence (09-23)", pts:-1, ts:"Sep 23, 2026"},
       {cat:"brotherhood", desc:"Pledge buddy hangout", pts:3, ts:"Sep 25, 2026"},
       {cat:"coffee", desc:"Coffee chat with Allison Lin", pts:5, ts:"Sep 25, 2026", with:"Allison Lin"},
@@ -764,7 +765,7 @@
       {cat:"fellowship", desc:"Rylnn didn't want to go to class", pts:-10, ts:"Nov 5, 2026"},
       {cat:"fellowship", desc:"Qualtrics survey for Britney's class", pts:20, ts:"Nov 6, 2026"}
     ]},
-    "Selina Xu": {total:122, coffee:66, brotherhood:23, fellowship:33, last:"Nov 4, 2026", streak:0, log:[
+    "Selina Xu": {total:142, coffee:66, brotherhood:23, fellowship:53, last:"Nov 6, 2026", streak:0, log:[
       {cat:"coffee", desc:"Chapter meeting attendance (09-23)", pts:5, ts:"Sep 23, 2026"},
       {cat:"fellowship", desc:"dues form (Ashima)", pts:2, ts:"Sep 26, 2026"},
       {cat:"fellowship", desc:"spotted Alena Talreja", pts:1, ts:"Sep 26, 2026"},
@@ -820,9 +821,10 @@
       {cat:"fellowship", desc:"engaged with Cici's reel", pts:3, ts:"Nov 4, 2026"},
       {cat:"fellowship", desc:"Election Day (voted)", pts:3, ts:"Nov 4, 2026"},
       {cat:"fellowship", desc:"no Dutch Bros pickup (Rylnn)", pts:-30, ts:"Nov 4, 2026"},
-      {cat:"fellowship", desc:"from Angelaa Guptaa (reason not stated in message)", pts:10, ts:"Nov 4, 2026"}
+      {cat:"fellowship", desc:"from Angelaa Guptaa (reason not stated in message)", pts:10, ts:"Nov 4, 2026"},
+      {cat:"fellowship", desc:"Qualtrics survey for Britney's class", pts:20, ts:"Nov 6, 2026"}
     ]},
-    "Leilani Ybarra": {total:147, coffee:37, brotherhood:33, fellowship:77, last:"Nov 5, 2026", streak:0, log:[
+    "Leilani Ybarra": {total:167, coffee:37, brotherhood:33, fellowship:97, last:"Nov 7, 2026", streak:0, log:[
       {cat:"coffee", desc:"Chapter meeting attendance (09-23)", pts:5, ts:"Sep 23, 2026"},
       {cat:"brotherhood", desc:"Pledge buddy hangout", pts:3, ts:"Sep 27, 2026"},
       {cat:"fellowship", desc:"STARS report project (Tanzil)", pts:7, ts:"Sep 28, 2026"},
@@ -863,9 +865,10 @@
       {cat:"fellowship", desc:"Rylnn was bored, didn't want to go to class", pts:-10, ts:"Nov 4, 2026"},
       {cat:"fellowship", desc:"got Ashima a bowl", pts:20, ts:"Nov 4, 2026"},
       {cat:"fellowship", desc:"Election Day (voted)", pts:3, ts:"Nov 4, 2026"},
-      {cat:"fellowship", desc:"got Britney a chicken caesar salad", pts:30, ts:"Nov 5, 2026"}
+      {cat:"fellowship", desc:"got Britney a chicken caesar salad", pts:30, ts:"Nov 5, 2026"},
+      {cat:"fellowship", desc:"Qualtrics survey for Britney's class", pts:20, ts:"Nov 7, 2026"}
     ]},
-    "Courtney Kijewski": {total:149, coffee:58, brotherhood:33, fellowship:58, last:"Nov 6, 2026", streak:1, log:[
+    "Courtney Kijewski": {total:149, coffee:58, brotherhood:33, fellowship:58, last:"Nov 6, 2026", streak:0, log:[
       {cat:"coffee", desc:"Chapter meeting attendance (09-23)", pts:5, ts:"Sep 23, 2026"},
       {cat:"fellowship", desc:"STARS report project (Tanzil)", pts:7, ts:"Sep 28, 2026"},
       {cat:"brotherhood", desc:"Pledge buddy hangout", pts:3, ts:"Sep 28, 2026"},
@@ -933,7 +936,7 @@
       {cat:"fellowship", desc:"thanked for coming to meeting (Nikki)", pts:5, ts:"Nov 5, 2026"},
       {cat:"fellowship", desc:"Qualtrics survey for Britney's class", pts:20, ts:"Nov 6, 2026"}
     ]},
-    "Hans Chiang": {total:123, coffee:52, brotherhood:33, fellowship:38, last:"Nov 5, 2026", streak:0, log:[
+    "Hans Chiang": {total:143, coffee:52, brotherhood:33, fellowship:58, last:"Nov 6, 2026", streak:0, log:[
       {cat:"coffee", desc:"Chapter meeting attendance (09-23)", pts:5, ts:"Sep 23, 2026"},
       {cat:"brotherhood", desc:"Pledge buddy hangout", pts:3, ts:"Sep 24, 2026"},
       {cat:"fellowship", desc:"got Aaron a shot at AKPsi x Tao", pts:5, ts:"Sep 25, 2026"},
@@ -984,9 +987,10 @@
       {cat:"fellowship", desc:"sneaking Aaron into Tao w/ sib", pts:10, ts:"Nov 3, 2026"},
       {cat:"fellowship", desc:"Election Day (voted)", pts:3, ts:"Nov 4, 2026"},
       {cat:"fellowship", desc:"answered Nikki (legal ark)", pts:5, ts:"Nov 4, 2026"},
-      {cat:"fellowship", desc:"thanked for coming to meeting (Nikki)", pts:5, ts:"Nov 5, 2026"}
+      {cat:"fellowship", desc:"thanked for coming to meeting (Nikki)", pts:5, ts:"Nov 5, 2026"},
+      {cat:"fellowship", desc:"Qualtrics survey for Britney's class", pts:20, ts:"Nov 6, 2026"}
     ]},
-    "Alice Zhao": {total:112, coffee:63, brotherhood:23, fellowship:26, last:"Nov 4, 2026", streak:0, log:[
+    "Alice Zhao": {total:132, coffee:63, brotherhood:23, fellowship:46, last:"Nov 6, 2026", streak:0, log:[
       {cat:"coffee", desc:"Chapter meeting absence (09-23)", pts:-1, ts:"Sep 23, 2026"},
       {cat:"fellowship", desc:"spotted Sophie Chuang", pts:1, ts:"Sep 24, 2026"},
       {cat:"fellowship", desc:"dues form (Ashima)", pts:2, ts:"Sep 26, 2026"},
@@ -1031,9 +1035,10 @@
       {cat:"fellowship", desc:"left Alena hungry while sick (blanket)", pts:-5, ts:"Nov 3, 2026"},
       {cat:"fellowship", desc:"engaged with Cici's reel", pts:3, ts:"Nov 4, 2026"},
       {cat:"fellowship", desc:"Election Day (voted)", pts:3, ts:"Nov 4, 2026"},
-      {cat:"fellowship", desc:"from Sophie Chuang (reason not stated in message)", pts:10, ts:"Nov 4, 2026"}
+      {cat:"fellowship", desc:"from Sophie Chuang (reason not stated in message)", pts:10, ts:"Nov 4, 2026"},
+      {cat:"fellowship", desc:"Qualtrics survey for Britney's class", pts:20, ts:"Nov 6, 2026"}
     ]},
-    "Jason Lee": {total:84, coffee:37, brotherhood:23, fellowship:24, last:"Nov 4, 2026", streak:1, log:[
+    "Jason Lee": {total:139, coffee:37, brotherhood:23, fellowship:79, last:"Nov 8, 2026", streak:0, log:[
       {cat:"coffee", desc:"Chapter meeting absence (09-23)", pts:-1, ts:"Sep 23, 2026"},
       {cat:"fellowship", desc:"answered questions (Allison)", pts:1, ts:"Sep 24, 2026"},
       {cat:"brotherhood", desc:"Pledge buddy hangout", pts:3, ts:"Sep 24, 2026"},
@@ -1086,9 +1091,11 @@
       {cat:"fellowship", desc:"Election Day (voted)", pts:3, ts:"Nov 4, 2026"},
       {cat:"fellowship", desc:"answered Nikki (legal ark)", pts:5, ts:"Nov 4, 2026"},
       {cat:"fellowship", desc:"hadn't sent resume (Angelaa)", pts:-5, ts:"Nov 4, 2026"},
-      {cat:"fellowship", desc:"didn't respond to Cici's text", pts:-5, ts:"Nov 4, 2026"}
+      {cat:"fellowship", desc:"didn't respond to Cici's text", pts:-5, ts:"Nov 4, 2026"},
+      {cat:"fellowship", desc:"Qualtrics survey for Britney's class", pts:20, ts:"Nov 7, 2026"},
+      {cat:"fellowship", desc:"vs runway pilates with Cici & Britney + drove everyone (Britney)", pts:35, ts:"Nov 8, 2026"}
     ]},
-    "Yuki Watanabe": {total:17, coffee:62, brotherhood:33, fellowship:-78, last:"Nov 5, 2026", streak:1, log:[
+    "Yuki Watanabe": {total:37, coffee:62, brotherhood:33, fellowship:-58, last:"Nov 8, 2026", streak:0, log:[
       {cat:"coffee", desc:"Chapter meeting attendance (09-23)", pts:5, ts:"Sep 23, 2026"},
       {cat:"coffee", desc:"Chapter meeting attendance (09-30)", pts:5, ts:"Sep 30, 2026"},
       {cat:"brotherhood", desc:"Pledge buddy hangout", pts:3, ts:"Sep 30, 2026"},
@@ -1142,9 +1149,10 @@
       {cat:"fellowship", desc:"suffered through Ting Ting's accidental calls", pts:5, ts:"Nov 4, 2026"},
       {cat:"fellowship", desc:"hadn't filled out timeful / sent resume (Angelaa)", pts:-5, ts:"Nov 4, 2026"},
       {cat:"fellowship", desc:"got Alena water", pts:2, ts:"Nov 5, 2026"},
-      {cat:"fellowship", desc:"Heytea BOGO (Cindy)", pts:10, ts:"Nov 5, 2026"}
+      {cat:"fellowship", desc:"Heytea BOGO (Cindy)", pts:10, ts:"Nov 5, 2026"},
+      {cat:"fellowship", desc:"Qualtrics survey for Britney's class", pts:20, ts:"Nov 8, 2026"}
     ]},
-    "Chloe Dalmacio": {total:9, coffee:56, brotherhood:13, fellowship:-60, last:"Nov 5, 2026", streak:1, log:[
+    "Chloe Dalmacio": {total:9, coffee:56, brotherhood:13, fellowship:-60, last:"Nov 5, 2026", streak:0, log:[
       {cat:"coffee", desc:"Chapter meeting absence (09-23)", pts:-1, ts:"Sep 23, 2026"},
       {cat:"brotherhood", desc:"Pledge buddy hangout", pts:3, ts:"Sep 28, 2026"},
       {cat:"coffee", desc:"Coffee chat with Britney Doan", pts:5, ts:"Sep 28, 2026", with:"Britney Doan"},
@@ -1191,7 +1199,7 @@
       {cat:"fellowship", desc:"hadn't joined Splashin app for KTParanoia/Assassins (as of 1:26am)", pts:-10, ts:"Nov 5, 2026"},
       {cat:"fellowship", desc:"yummy pre coffee chat snacks (Alena)", pts:2, ts:"Nov 5, 2026"}
     ]},
-    "Chloe Hoang": {total:39, coffee:57, brotherhood:23, fellowship:-41, last:"Nov 4, 2026", streak:1, log:[
+    "Chloe Hoang": {total:59, coffee:57, brotherhood:23, fellowship:-21, last:"Nov 7, 2026", streak:0, log:[
       {cat:"coffee", desc:"Chapter meeting attendance (09-23)", pts:5, ts:"Sep 23, 2026"},
       {cat:"fellowship", desc:"dues form (Ashima)", pts:2, ts:"Sep 26, 2026"},
       {cat:"fellowship", desc:"spotted Alena Talreja", pts:1, ts:"Sep 26, 2026"},
@@ -1233,7 +1241,8 @@
       {cat:"coffee", desc:"Coffee chat with Britney Doan", pts:5, ts:"Nov 3, 2026",with:"Britney Doan"},
       {cat:"fellowship", desc:"supported Ting Ting's dance fundraiser", pts:25, ts:"Nov 3, 2026"},
       {cat:"fellowship", desc:"engaged with Cici's reel", pts:3, ts:"Nov 4, 2026"},
-      {cat:"fellowship", desc:"Election Day (voted)", pts:3, ts:"Nov 4, 2026"}
+      {cat:"fellowship", desc:"Election Day (voted)", pts:3, ts:"Nov 4, 2026"},
+      {cat:"fellowship", desc:"Qualtrics survey for Britney's class", pts:20, ts:"Nov 7, 2026"}
     ]},
     "Ryogo Otsuka": {total:-17, coffee:31, brotherhood:33, fellowship:-81, last:"Nov 4, 2026", streak:0, log:[
       {cat:"coffee", desc:"Chapter meeting absence (09-23)", pts:-1, ts:"Sep 23, 2026"},
@@ -1278,7 +1287,7 @@
       {cat:"fellowship", desc:"Election Day (voted)", pts:3, ts:"Nov 4, 2026"},
       {cat:"fellowship", desc:"good Softies order (Alena)", pts:20, ts:"Nov 4, 2026"}
     ]},
-    "Iain Yang": {total:1, coffee:43, brotherhood:16, fellowship:-58, last:"Nov 4, 2026", streak:7, log:[
+    "Iain Yang": {total:21, coffee:43, brotherhood:16, fellowship:-38, last:"Nov 8, 2026", streak:0, log:[
       {cat:"coffee", desc:"Chapter meeting absence (09-23)", pts:-1, ts:"Sep 23, 2026"},
       {cat:"brotherhood", desc:"Pledge buddy hangout", pts:3, ts:"Sep 25, 2026"},
       {cat:"coffee", desc:"Coffee chat with Allison Lin", pts:5, ts:"Sep 25, 2026", with:"Allison Lin"},
@@ -1320,7 +1329,8 @@
       {cat:"fellowship", desc:"left Alena hungry while sick (blanket)", pts:-5, ts:"Nov 3, 2026"},
       {cat:"coffee", desc:"Coffee chat with Britney Doan", pts:5, ts:"Nov 3, 2026",with:"Britney Doan"},
       {cat:"fellowship", desc:"engaged with Cici's reel", pts:3, ts:"Nov 4, 2026"},
-      {cat:"fellowship", desc:"Election Day (voted)", pts:3, ts:"Nov 4, 2026"}
+      {cat:"fellowship", desc:"Election Day (voted)", pts:3, ts:"Nov 4, 2026"},
+      {cat:"fellowship", desc:"Qualtrics survey for Britney's class", pts:20, ts:"Nov 8, 2026"}
     ]},
     "Austin Chen": {total:-32, coffee:28, brotherhood:3, fellowship:-63, last:"Nov 5, 2026", streak:0, log:[
       {cat:"coffee", desc:"Chapter meeting attendance (09-23)", pts:5, ts:"Sep 23, 2026"},
@@ -1355,7 +1365,7 @@
       {cat:"fellowship", desc:"Election Day (voted)", pts:3, ts:"Nov 4, 2026"},
       {cat:"fellowship", desc:"hadn't joined Splashin app for KTParanoia/Assassins (as of 1:26am)", pts:-10, ts:"Nov 5, 2026"}
     ]},
-    "Kyle Banducci": {total:66, coffee:35, brotherhood:18, fellowship:13, last:"Nov 5, 2026", streak:0, log:[
+    "Kyle Banducci": {total:86, coffee:35, brotherhood:18, fellowship:33, last:"Nov 6, 2026", streak:0, log:[
       {cat:"coffee", desc:"Chapter meeting attendance (09-23)", pts:5, ts:"Sep 23, 2026"},
       {cat:"fellowship", desc:"spotted Allison Lin", pts:1, ts:"Sep 24, 2026"},
       {cat:"fellowship", desc:"project preference form late (Alena)", pts:-5, ts:"Sep 27, 2026"},
@@ -1400,9 +1410,10 @@
       {cat:"fellowship", desc:"brought water gallons from CVS for Britney", pts:30, ts:"Nov 4, 2026"},
       {cat:"fellowship", desc:"Election Day (voted)", pts:3, ts:"Nov 4, 2026"},
       {cat:"fellowship", desc:"hadn't joined Splashin app for KTParanoia/Assassins (as of 1:26am)", pts:-10, ts:"Nov 5, 2026"},
-      {cat:"fellowship", desc:"saved Allison's ahh, as promised (Allison)", pts:40, ts:"Nov 5, 2026"}
+      {cat:"fellowship", desc:"saved Allison's ahh, as promised (Allison)", pts:40, ts:"Nov 5, 2026"},
+      {cat:"fellowship", desc:"Qualtrics survey for Britney's class", pts:20, ts:"Nov 6, 2026"}
     ]},
-    "Anushka Patil": {total:107, coffee:40, brotherhood:13, fellowship:54, last:"Nov 5, 2026", streak:0, log:[
+    "Anushka Patil": {total:127, coffee:40, brotherhood:13, fellowship:74, last:"Nov 6, 2026", streak:0, log:[
       {cat:"coffee", desc:"Chapter meeting attendance (09-23)", pts:5, ts:"Sep 23, 2026"},
       {cat:"brotherhood", desc:"Pledge buddy hangout", pts:3, ts:"Sep 27, 2026"},
       {cat:"coffee", desc:"Coffee chat with Cindy Chang", pts:5, ts:"Sep 28, 2026", with:"Cindy Chang"},
@@ -1440,7 +1451,8 @@
       {cat:"fellowship", desc:"good edits (Britney)", pts:5, ts:"Nov 4, 2026"},
       {cat:"fellowship", desc:"shopping trip + drinks (Britney)", pts:20, ts:"Nov 4, 2026"},
       {cat:"fellowship", desc:"kindness (Rylnn)", pts:15, ts:"Nov 5, 2026"},
-      {cat:"fellowship", desc:"thanked for coming to meeting (Nikki)", pts:5, ts:"Nov 5, 2026"}
+      {cat:"fellowship", desc:"thanked for coming to meeting (Nikki)", pts:5, ts:"Nov 5, 2026"},
+      {cat:"fellowship", desc:"Qualtrics survey for Britney's class", pts:20, ts:"Nov 6, 2026"}
     ]}
   };
 
