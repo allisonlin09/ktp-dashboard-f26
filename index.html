@@ -360,6 +360,37 @@
       <thead><tr><th>Pledge</th><th style="text-align:right;">Points</th></tr></thead>
       <tbody id="lbBody"></tbody>
     </table>
+
+    <h3 style="font-size:14px;color:var(--text-dim);font-weight:600;margin:28px 0 12px;">📸 Recent photos</h3>
+    <div class="collage-wrap">
+      <div class="collage-empty" id="collageEmpty" style="display:none;">No photos logged yet — #coffee-chats-f26 and #spotted-f26 posts will show up here.</div>
+      <div class="collage-track" id="collageTrack"></div>
+    </div>
+
+    <h3 style="font-size:14px;color:var(--text-dim);font-weight:600;margin:28px 0 12px;">💬 Slack recap</h3>
+    <div class="feed-grid" style="margin-bottom:26px;">
+      <div class="card feed-card">
+        <h4>☕ Coffee Chats</h4>
+        <div class="chan">#coffee-chats-f26</div>
+        <div id="feedCoffee"></div>
+        <a class="chan-link" href="https://kappathetapi-usc.slack.com/archives/C0C3Y8LGZ53" target="_blank" rel="noopener">Open in Slack ↗</a>
+      </div>
+      <div class="card feed-card">
+        <h4>👀 Spotted</h4>
+        <div class="chan">#spotted-f26</div>
+        <div id="feedSpotted"></div>
+        <a class="chan-link" href="https://kappathetapi-usc.slack.com/archives/C0C1RML218A" target="_blank" rel="noopener">Open in Slack ↗</a>
+      </div>
+      <div class="card feed-card">
+        <h4>📣 Announcements</h4>
+        <div class="chan">#pledge-announcements-f26</div>
+        <div id="feedAnn"></div>
+        <a class="chan-link" href="https://kappathetapi-usc.slack.com/archives/C0C1ACB6C6B" target="_blank" rel="noopener">Open in Slack ↗</a>
+      </div>
+    </div>
+
+    <h3 style="font-size:14px;color:var(--text-dim);font-weight:600;margin:28px 0 12px;">📋 Points rubric</h3>
+    <div class="rubric" id="rubricGrid"></div>
   </section>
 
   <!-- FAMILY TREE -->
@@ -558,6 +589,26 @@
     {url:"photos/2026-11-10-coffee-chat-alice-ashima.jpg", caption:"Alice Zhao's coffee chat with Ashima Gupta — #coffee-chats-f26", date:"Nov 10, 2026"}
   ];
 
+  // Short real-activity summaries, newest first, capped at 5 — refreshed each routine run from Slack.
+  var FEED_COFFEE = [
+    {text:"Alice Zhao coffee-chatted with Ting Ting Chen.", date:"Nov 14, 2026"},
+    {text:"Jason Lee's group coffee chat with Angelaa Guptaa, Allison Lin & Chloe Hoang.", date:"Nov 11, 2026"},
+    {text:"Alice Zhao coffee-chatted with Ashima Gupta.", date:"Nov 10, 2026"},
+    {text:"Ryogo Otsuka's group coffee chat with Nick Stitle, Alena Talreja & Yuki Watanabe.", date:"Nov 10, 2026"}
+  ];
+  var FEED_SPOTTED = [
+    {text:"Rylnn Chavez — spotted.", date:"Nov 16, 2026"},
+    {text:"Nick Stitle — spotted at TJ Maxx.", date:"Nov 14, 2026"},
+    {text:"Ting Ting Chen — spotted at a pop up.", date:"Nov 14, 2026"},
+    {text:"Caitlyn Chan — spotted at a hackathon.", date:"Nov 14, 2026"},
+    {text:"Andrew Chan — spotted at KASA.", date:"Nov 14, 2026"}
+  ];
+  var FEED_ANN = [
+    {text:"Reminder to get to the guest speaker event at JFF 241.", date:"Nov 16, 2026"},
+    {text:"Don't miss scheduled mentor meetings — no-shows reflect badly on KTP and waste mentors' time.", date:"Nov 16, 2026"},
+    {text:"Guest speaker event on investing tonight at 6 — +5 pts per friend you bring, RSVP via Partiful.", date:"Nov 16, 2026"}
+  ];
+
   var RUBRIC = {
     "Involvement": [
       ["Meeting attendance (on-time)", "+5"], ["Internal / pro event attendance", "+5"],
@@ -619,6 +670,19 @@
         (ph.caption ? '<div class="cap">'+ph.caption+'</div>' : '');
       track.appendChild(item);
     });
+  }
+  function renderFeed(items, elId, emptyText){
+    var el = document.getElementById(elId);
+    if(!el) return;
+    if(!items || !items.length){ el.innerHTML = '<div class="feed-empty">'+emptyText+'</div>'; return; }
+    el.innerHTML = items.map(function(it){
+      return '<div class="rline"><span>'+it.text+'</span><b>'+it.date+'</b></div>';
+    }).join('');
+  }
+  function renderFeeds(){
+    renderFeed(FEED_COFFEE, 'feedCoffee', 'No new coffee-chat photos posted yet.');
+    renderFeed(FEED_SPOTTED, 'feedSpotted', 'No new spottings posted yet.');
+    renderFeed(FEED_ANN, 'feedAnn', 'No new announcements posted yet.');
   }
   function renderDirSnap(){
     var el = document.getElementById('dirSnap');
@@ -1022,6 +1086,9 @@
   renderCards();
   renderTree();
   renderBuddies();
+  renderRubric();
+  renderCollage();
+  renderFeeds();
   refreshStats();
   setInterval(refreshStats, 60000);
 })();
